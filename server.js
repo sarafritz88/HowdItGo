@@ -2,6 +2,7 @@ require('dotenv').config();
 const twilio = require('twilio');
 const accountSid = process.env.TWILIO_TEST_ACCOUNT_SID;
 const authToken = process.env.TWILIO_TEST_AUTHTOKEN;
+const port = process.env.PORT || 5001;
 
 const client = new twilio(accountSid, authToken);
 
@@ -27,4 +28,4 @@ server.post('/', (req, res) => {
     .catch(err => res.json(err));
 });
 
-server.listen(5000, console.log('server running on 5000'));
+server.listen(port, console.log('server running'));
