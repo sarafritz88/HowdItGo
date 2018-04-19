@@ -1,0 +1,21 @@
+.lnavcontainer {
+    height: 100vh;
+    width: 30vw;
+    position: absolute;
+    top: 57px;
+    background-color: red;
+    display: flex;
+    flex-direction: column;
+
+
+}
+.leftNav {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+h2 {
+    color: white;
+}
