@@ -4,6 +4,9 @@ import axios from 'axios';
 import './Settings.css';
 import LeftNavigation from './LeftNav';
 
+const urlShortener = 'https://5ly.me/api/shorten.php?url=';
+const baseURL = 'http://localhost:5001';
+
 export default class SettingsPage extends React.Component {
   constructor() {
     super();
@@ -21,6 +24,10 @@ export default class SettingsPage extends React.Component {
   handleSubmit = event => {
     event.preventDefault();
     console.log(this.state);
+    axios
+      .get(baseURL)
+      .then(res => console.log(res.data))
+      .catch(err => console.log(err));
   };
 
   handleChange = event => {

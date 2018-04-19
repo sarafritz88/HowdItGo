@@ -1,4 +1,6 @@
 require('dotenv').config();
+
+const cors = require('cors');
 const twilio = require('twilio');
 const accountSid = process.env.TWILIO_TEST_ACCOUNT_SID;
 const authToken = process.env.TWILIO_TEST_AUTHTOKEN;
@@ -11,6 +13,7 @@ const express = require('express');
 const server = express();
 
 server.use(express.json());
+server.use(cors());
 
 server.get('/', (req, res) => {
   res.json({ success: 'this is working' });
