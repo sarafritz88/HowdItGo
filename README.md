@@ -1,2 +1,4 @@
-# HowdItGo
-CS8 PMs Labs Project
+# fbreactbp
+
+React with Firebase User Creation, Auth, DB
+
