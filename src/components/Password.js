@@ -19,5 +19,4 @@ const PasswordPage = () =>
         </div>
     </div>
 
-
 export default PasswordPage;

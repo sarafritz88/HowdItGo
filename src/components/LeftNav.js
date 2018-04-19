@@ -19,7 +19,6 @@ const LeftNavigation = (props, { authUser }) =>
         <div>
             <li>HowdItGo</li>
         </div>
-        {/* <div><h2>{authUser.email}</h2></div> */}
         <div>
             <li class="push"><Link to={routes.INVITE}>Invite</Link></li>
         </div>

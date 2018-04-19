@@ -7,7 +7,6 @@ export const doCreateUser = (id, username, email, company ) =>
         username,
         email,
         company,
-
     });
 
 export const onceGetUsers = () =>

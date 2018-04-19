@@ -36,7 +36,6 @@ class SignUpForm extends Component {
             username,
             email,
             passwordOne,
-
         } = this.state;
 
         const {

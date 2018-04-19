@@ -43,7 +43,6 @@ class PasswordChangeForm extends Component {
                     value={passwordOne}
                     onChange={event => this.setState(byPropKey('passwordOne', event.target.value))}
                     type="password"
-
                 />
                 </div>
                 <div>
