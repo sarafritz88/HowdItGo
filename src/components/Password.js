@@ -1,16 +1,22 @@
 import React from 'react';
-import { PasswordForgetForm } from './PasswordForget';
+
 import PasswordChangeForm from './PasswordChange';
+import LeftNavigation from './LeftNav'
+import './password.css';
 
 const PasswordPage = () =>
-    <div>
-        <h1>Password Page</h1>
+    <div class ="page">
         <div>
-            <PasswordForgetForm />
+            <LeftNavigation />
         </div>
-        <div>
+        <div class="content">
+            <div>
+
+                <h1>Password Change</h1>
+            </div>
+
             <PasswordChangeForm />
-    </div>
+        </div>
     </div>
 
 export default PasswordPage;

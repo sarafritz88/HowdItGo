@@ -1,8 +1,13 @@
 import React from 'react';
+import LeftNavigation from './LeftNav'
 
 const InvitePage = () =>
-    <div>
-        <h1>Invite Page</h1>
+    <div class="page">
+
+        <div>
+            <LeftNavigation />
+        </div>
+        <div class="content">Invite</div>
     </div>
 
 export default InvitePage;
