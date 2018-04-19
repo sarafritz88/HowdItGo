@@ -10,6 +10,7 @@ const AccountPage = (props, { authUser }) =>
     <div class="acc">
         <div>
         <LeftNavigation />
+
         </div>
 
 

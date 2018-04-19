@@ -28,4 +28,4 @@ server.post('/', (req, res) => {
     .catch(err => res.json(err));
 });
 
-server.listen(port, console.log('server running'));
+server.listen(port, console.log('server running', port));

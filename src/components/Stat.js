@@ -1,8 +1,13 @@
 import React from 'react';
+import LeftNavigation from './LeftNav'
 
 const StatsPage = () =>
-    <div>
-        <h1>Stats Page</h1>
+    <div class="page">
+
+        <div>
+            <LeftNavigation />
+        </div>
+        <div class="content">Stats</div>
     </div>
 
 export default StatsPage;
