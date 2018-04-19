@@ -4,7 +4,7 @@ import axios from 'axios';
 import './Settings.css';
 import LeftNavigation from './LeftNav';
 
-const urlShortener = 'https://5ly.me/api/shorten.php?url=';
+//const urlShortener = 'https://5ly.me/api/shorten.php?url=';
 const baseURL = 'http://localhost:5001';
 
 export default class SettingsPage extends React.Component {
