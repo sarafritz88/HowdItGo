@@ -64,12 +64,12 @@ class SignInForm extends Component {
             email === '';
 
         return (
-            <div class="form">
+            <div className="form">
             <h1>Sign In</h1>
             <form onSubmit={this.onSubmit}>
 
                 <div>
-                    <div class="label">
+                    <div className="label">
                         Email Address:
                     </div>
                 <input
@@ -80,7 +80,7 @@ class SignInForm extends Component {
                 />
                 </div>
                 <div>
-                    <div class="label">
+                    <div className="label">
                         Password:
                     </div>
                 <input

@@ -5,11 +5,11 @@ import LeftNavigation from './LeftNav'
 import './password.css';
 
 const PasswordPage = () =>
-    <div class ="page">
+    <div className ="page">
         <div>
             <LeftNavigation />
         </div>
-        <div class="content">
+        <div className="content">
             <div>
 
                 <h1>Password Change</h1>

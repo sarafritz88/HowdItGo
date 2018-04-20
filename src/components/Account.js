@@ -7,7 +7,7 @@ import './account.css';
 
 
 const AccountPage = (props, { authUser }) =>
-    <div class="acc">
+    <div className="acc">
         <div>
         <LeftNavigation />
 

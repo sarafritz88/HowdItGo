@@ -22,9 +22,9 @@ Navigation.contextTypes = {
 
 const NavigationAuth = () =>
     <ul>
-        <li><i className="fa fa-code fa-lg fa-spin"></i></li>
+        <li><i classNameName="fa fa-code fa-lg fa-spin"></i></li>
         <li>HowdItGo</li>
-        <li class="logo"><Link to={routes.LANDING}>Landing</Link></li>
+        <li className="logo"><Link to={routes.LANDING}>Landing</Link></li>
         <li><Link to={routes.HOME}>Home</Link></li>
         <li><Link to={routes.ACCOUNT}>Account</Link></li>
         <li><SignOutButton /></li>
@@ -35,7 +35,7 @@ const NavigationNonAuth = () =>
     <ul>
         <li><i className="fa fa-code fa-lg fa-spin"></i></li>
         <li>HowdItGo</li>
-        <li class="logo"><Link to={routes.SIGN_UP}>Sign In</Link></li>
+        <li className="logo"><Link to={routes.SIGN_UP}>Sign In</Link></li>
         <li><Link to={routes.LANDING}>Landing</Link></li>
 
     </ul>

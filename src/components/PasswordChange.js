@@ -36,7 +36,7 @@ class PasswordChangeForm extends Component {
         return (
             <form onSubmit={this.onSubmit}>
                 <div>
-                    <div class="label">
+                    <div className="label">
                         New Password:
                     </div>
                 <input
@@ -46,7 +46,7 @@ class PasswordChangeForm extends Component {
                 />
                 </div>
                 <div>
-                    <div class="label">
+                    <div className="label">
                         Confirm New Password:
                     </div>
                 <input

@@ -8,7 +8,7 @@ import { SignInForm } from './SignIn';
 import * as routes from '../constants/routes';
 
 const SignUpPage = ({ history }) =>
-    <div class="container">
+    <div className="container">
         <SignUpForm history={history} />
         <SignInForm history={history} />
     </div>
@@ -79,11 +79,11 @@ class SignUpForm extends Component {
 
             return (
 
-                <div class="form">
+                <div className="form">
                     <h1>Sign Up</h1>
                 <form onSubmit={this.onSubmit}>
             <div>
-                        <div class="label">
+                        <div className="label">
                             Name:
                         </div>
                     <input
@@ -94,7 +94,7 @@ class SignUpForm extends Component {
                     />
                     </div>
                     <div>
-                        <div class="label">
+                        <div className="label">
                             Email Address:
                         </div>
                     <input
@@ -105,7 +105,7 @@ class SignUpForm extends Component {
                     />
                     </div>
                     <div>
-                        <div class="label">
+                        <div className="label">
                             Password:
                         </div>
                     <input
@@ -116,7 +116,7 @@ class SignUpForm extends Component {
                     />
                     </div>
                     <div>
-                        <div class="label">
+                        <div className="label">
                             Confirm Password:
                         </div>
                     <input
