@@ -22,7 +22,7 @@ Navigation.contextTypes = {
 
 const NavigationAuth = () =>
     <ul>
-        <li><i className="fa fa-code fa-lg fa-spin"></i></li>
+        <li><i className="fa fa-code fa-lg fa-spin"> </i></li>
         <li>HowdItGo</li>
         <li class="logo"><Link to={routes.LANDING}>Landing</Link></li>
         <li><Link to={routes.HOME}>Home</Link></li>

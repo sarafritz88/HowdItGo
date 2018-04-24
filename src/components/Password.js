@@ -12,7 +12,7 @@ const PasswordPage = () =>
         <div class="content">
             <div>
 
-                <h1>Password Change</h1>
+                <h3>Password Change</h3>
             </div>
 
             <PasswordChangeForm />
