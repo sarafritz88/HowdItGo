@@ -1,11 +1,10 @@
-.button {
-    background-color: black;
+.button1 {
     border: none;
-    color: white;
-    padding: 8px;
+    color:white;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
-    opacity: 0.7;
+    font-size: 1.2vw;
+    background-color: #EC4326;
+
 }

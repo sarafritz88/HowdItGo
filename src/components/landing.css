@@ -1,72 +1,259 @@
-html, body {
-    background: #141E30;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to bottom, #243B55, #141E30);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to bottom, #243B55, #141E30); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:regular,bold,italic&subset=latin,latin-ext');
 
-}
-.top {
-    height: 60vh;
-    width: 100vw;
-    margin: 0;
-    padding: 0;
-    color: white;
+html, body {
+    background-size: cover;
+    background-color: #07003b;
+    background-image: url("https://www.transparenttextures.com/patterns/brick-wall-dark.png");
     display: flex;
     align-items: center;
     justify-content: center;
+
+
+}
+
+.container {
+    background: #fe8c00;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom right, #fc6620 3%, #07003b);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom right, #fc6620 3%, #fc2033); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    top:0;
+    height: 100vh;
+    max-width: 80vw;
+
+    display: flex;
+    justify-content: center;
+
+
+}
+
+.overlay:not(.lower) {
+    background: url("https://www.transparenttextures.com/patterns/checkered-pattern.png");
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+    margin: -15px;
+
+}
+
+.overlay {
+    height: 100vh;
+    width: 100vh;
+    display: flex;
     flex-direction: column;
+    justify-content: flex-end;
 
+}
 
+.top {
+
+    height: 40vh;
+    width: 60vw;
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .lower {
-    height: 40vh;
-    width: 100vw;
-    background: #C9D6FF;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to bottom, #E2E2E2, #C9D6FF);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to bottom, #E2E2E2, #C9D6FF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    width: 85vw;
+    height: 30vh;
+    background: #D3CCE3;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top right, #E9E4F0, #efe8ff);
+    background: linear-gradient(to top right, #E9E4F0, #efe8ff);
+    display: flex;
+    border-radius: 3px;
+    box-shadow: 1px 0 15px 2px rgba(0,0,0,0.2);
+    align-items: center;
+    margin: 10vh;
+
+}
+
+h1 {
+    font-size: 12vw;
+    font-family: 'Jacques Francois Shadow', cursive;
+    text-shadow: 4px 4px 6px #000000;
+    margin-top: 10vh;
+}
+
+h4 {
+    font-size: 2.5vh;
+    margin-right: 4vw;
+}
+
+h6 {
+    font-size: 2vw;
+    color: #f99d2c;
+    margin-top: -5px;
+}
+
+p {
+    margin-top: 3vh;
+
+}
+
+.box {
+    height: 35vh;
+    width: 30vw;
+    background-color: white;
+    margin-left: 10vw;
+    margin-right: 5vw;
+    box-shadow: 1px 0 15px 2px rgba(0,0,0,0.4);
     display: flex;
     align-items: center;
+    justify-content: center;
     flex-direction: column;
 
 }
 
-h2 {
-    padding-bottom: 5vh;
+.speech-bubble {
+    position: relative;
+    background: #00aabb;
+    border-radius: .4em;
+    height: 20vh;
+    width: 20vw;
+    box-shadow: 1px 0 15px 2px rgba(0,0,0,0.4);
+    margin-bottom: 10vh;
+
 }
 
- h3 {
-     padding-top: 5vh;
- }
+.speech-bubble:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 80%;
+    width: 0;
+    height: 0;
+    border: 20px solid transparent;
+    border-top-color: #00aabb;
+    border-bottom: 0;
+    border-left: 0;
+    margin-left: -10px;
+    margin-bottom: -20px;
 
- h4 {
-     padding-top: 3vh;
- }
+}
 
-.b1 {
-    height: 10vh;
-    width: 30vw;
-    background: #1e3c72;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to left, #2a5298, #1e3c72);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to left, #2a5298, #1e3c72); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    border: 1px black solid;
-    border-radius: 5px;
-    color: white;
-    box-shadow: 10px 10px 5px black;
-    margin-top: 5vh;
-    font-size: 2em;
-    transition: all 0.5s;
+@keyframes bounce-3rd {
+    0% {
+        transform: translateY(0);
+    }
+    16% {
+        transform: translateY(-125%);
+    }
+    33% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+[class^=dot-] {
+    animation: 900ms ease-out bounce-3rd infinite;
+}
+
+.dot-1 {
+    animation-delay: 2s;
+}
+
+.dot-2 {
+    animation-delay: 400ms;
+    margin-left: 1vw;
+}
+
+.dot-3 {
+    animation-delay: 600ms;
+}
+
+.message-dots {
+    width: 7vw;
+    height: 5vh;
+    padding: 5px 10px;
+    border-radius: 10px;
+    background-color: #d8d8d8;
+    position:relative;
+    margin-top: -8vh;
+
+    margin-left:-10vw;
+}
+
+.right-message .message-dots {
+    right: 0;
+}
+
+.left-message .message-dots {
+    left: 0;
+}
+
+[class^=dot-] {
+    width: 1vw;
+    height: 1vw;
+    position: absolute;
+    bottom: 5px;
+    background: #2A2F33;
+    border-radius: 50%;
+    -webkit-box-shadow: 0 0 1px #2A2F33;
+    box-shadow: 0 0 1px #2A2F33;
+}
+
+.dot-1 {
+    left: .5vw;
+}
+
+.dot-2 {
+    left:2vw;
+}
+
+.dot-3 {
+    right: 2.5px;
+}
+
+.speech-bubble {
     display: flex;
+    align-items: center;
     justify-content: center;
+}
+
+a {
+    color:#fff;
+}
+a:hover{
+    color:#fff;
+}
+
+
+
+.button-two{
+    text-align: center;
+    cursor: pointer;
+    font-size:1.5vw;
+    margin: 0 0 0 20vw;
+    color:#fff;
+    height: 8vh;
+    width: 15vw;
+
+
 
 }
 
-.b1 span {
+.button-two {
+    border-radius: 4px;
+    background-color:#00AABB;
+    border: none;
+    padding: 20px;
+
+    transition: all 0.5s;
+}
+
+
+.button-two span {
+    cursor: pointer;
+    display: inline-block;
     position: relative;
     transition: 0.5s;
 }
 
-.b1 span:after {
-    content: ' »';
+.button-two span:after {
+    content: '»';
     position: absolute;
     opacity: 0;
     top: 0;
@@ -74,15 +261,18 @@ h2 {
     transition: 0.5s;
 }
 
-.b1:hover span {
+.button-two:hover span {
     padding-right: 25px;
+
 }
 
-.b1:hover span:after {
+.button-two:hover span:after {
     opacity: 1;
     right: 0;
+
 }
 
-.a {
-    text-decoration: none;
-}
+
+
+
+

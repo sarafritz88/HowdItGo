@@ -4,7 +4,7 @@ import './signout.css';
 import { auth } from '../firebase';
 
 const SignOutButton = () =>
-    <button className="button"
+    <button class="button1"
         type="button"
         onClick={auth.doSignOut}
     >

@@ -10,17 +10,17 @@ import * as routes from '../constants/routes';
 
 
 const LeftNavigation = (props, { authUser }) =>
-    <div className="lnavcontainer">
-    <ul className="leftNav">
+    <div class="lnavcontainer">
+    <ul class="leftNav">
 
         <div>
-        <li><i classNameName="fa fa-code fa-lg fa-spin"></i></li>
+        <li><i className="fa fa-code fa-lg fa-spin"></i></li>
         </div>
         <div>
             <li>HowdItGo</li>
         </div>
         <div>
-            <li className="push"><Link to={routes.INVITE}>Invite</Link></li>
+            <li class="push"><Link to={routes.INVITE}>Invite</Link></li>
         </div>
         <div>
         <li><Link to={routes.STATS}>Stats</Link></li>
