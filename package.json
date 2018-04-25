@@ -1,10 +1,27 @@
 {
-  "name": "note",
-  "version": "0.1.0",
-  "private": true,
+  "name": "howd-it-go",
+  "version": "1.0.0",
+  "description": "How to use create-react-app with a custom Node API on Heroku",
+  "engines": {
+    "node": "8.9.x"
+  },
+  "scripts": {
+    "start": "node server",
+    "heroku-postbuild": "cd react-ui/ && npm install && npm install --only=dev --no-shrinkwrap && npm run build"
+  },
+  "cacheDirectories": [
+    "node_modules",
+    "react-ui/node_modules"
+  ],
   "dependencies": {
-    "bootstrap": "^4.0.0",
+    "ajv-keywords": "^3.1.0",
+    "axios": "^0.18.0",
+    "bootstrap": "^4.1.0",
+    "cors": "^2.8.4",
+    "dotenv": "^5.0.1",
+    "express": "^4.16.3",
     "firebase": "^4.12.1",
+    "firebase-admin": "^5.12.0",
     "font-awesome": "^4.7.0",
     "prop-types": "^15.6.1",
     "react": "^16.3.0",
@@ -12,12 +29,20 @@
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.1.1",
     "reactstrap": "^5.0.0-beta.3",
-    "save": "^2.3.2"
+    "save": "^2.3.2",
+    "twilio": "^3.15.0"
   },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
-  }
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/KingAtoki/heroku-cra-node"
+  },
+  "keywords": [
+    "node",
+    "heroku",
+    "create-react-app",
+    "react"
+  ],
+  "license": "MIT",
+  "devDependencies": {},
+  "homepage": "https://howd-it-go.herokuapp.com/"
 }
