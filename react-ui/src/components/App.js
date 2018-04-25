@@ -26,7 +26,6 @@ const App = () => (
         path={routes.PASSWORD_FORGET}
         component={() => <PasswordForgetPage />}
       />
-
       <Route exact path={routes.ACCOUNT} component={() => <AccountPage />} />
       <Route exact path={routes.PASSWORD} component={() => <PasswordPage />} />
       <Route exact path={routes.INVITE} component={() => <InvitePage />} />
