@@ -45,6 +45,7 @@ const NavigationNonAuth = () => (
       <li class="logo"> </li>
         {/*<Link to={routes.SIGN_UP}>Sign In</Link></li>
         <li>//<Link to={routes.LANDING}>Landing</Link></li>*/}
+
   </ul>
 );
 
