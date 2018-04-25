@@ -1,0 +1,145 @@
+html,body {
+    display: flex;
+
+}
+
+
+label {
+    width: 40vw;
+    height: 50vh;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    display: block;
+
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+}
+
+.card {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transition: all 600ms;
+    transition: all 600ms;
+    z-index: 20;
+    -webkit-animation: neon2 1.5s ease-in-out infinite alternate;
+    -moz-animation: neon2 1.5s ease-in-out infinite alternate;
+    animation: neon2 1.5s ease-in-out infinite alternate;
+
+}
+
+.card div {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: #000000;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top, #434343, #000000);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, #434343, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    text-align: center;
+    line-height: 200px;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 2px;
+}
+
+.card .back {
+    background: #222;
+    color: #FFF;
+    -webkit-transform: rotateX(180deg);
+    transform: rotateX(180deg);
+
+}
+
+label:hover .card {
+    -webkit-transform: rotateX(20deg);
+    transform: rotateX(20deg);
+    box-shadow: 0 20px 20px rgba(50,50,50,.2);
+}
+
+input {
+    display: none;
+}
+
+:checked + .card {
+    transform: rotateX(180deg);
+    -webkit-transform: rotateX(180deg);
+}
+
+label:hover :checked + .card {
+    transform: rotateX(160deg);
+    -webkit-transform: rotateX(160deg);
+    box-shadow: 0 20px 20px rgba(255,255,255,.2);
+}
+
+.cardContent {
+
+    display: flex;
+    align-items: center;
+    flex-direction:column;
+
+
+}
+
+.words {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+}
+
+.words2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+
+}
+
+
+
+p2 {
+
+    font-size: 6vw;
+    font-family: 'Jacques Francois Shadow', cursive;
+    color: #fff;
+    margin:-10vh;
+
+    -webkit-animation: neon1 1.5s ease-in-out infinite alternate;
+    -moz-animation: neon1 1.5s ease-in-out infinite alternate;
+    animation: neon1 1.5s ease-in-out infinite alternate;
+}
+
+
+
+
+.backContent{
+    display: flex;
+    flex-direction: column;
+
+}
+
+
+@-webkit-keyframes neon1 {
+    from {
+        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #ff7c19, 0 0 70px #FF7C19, 0 0 80px #FF7C19, 0 0 100px #FF7C19, 0 0 150px #FF7C19;
+    }
+    to {
+        text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #FF7C19, 0 0 35px #FF7C19, 0 0 40px #FF7C19, 0 0 50px #FF7C19, 0 0 75px #FF7C19;
+    }
+}
+
+@-webkit-keyframes neon2 {
+    from {
+        box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #FF7C19, 0 0 70px #FF7C19, 0 0 80px #FF7C19, 0 0 100px #FF7C19, 0 0 150px #FF7C19;
+    }
+    to {
+        box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #FF7C19, 0 0 35px #FF7C19, 0 0 40px #FF7C19, 0 0 50px #FF7C19, 0 0 75px #FF7C19;
+    }
+}
