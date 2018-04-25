@@ -1,7 +1,7 @@
 
 {
-  "name": "heroku-cra-node",
-  "description": "web app made of create-react-app UI + Node API",
+  "name": "howd-it-go",
+  "description": "Lambda Labs Project",
   "scripts": {},
   "env": {},
   "formation": {
