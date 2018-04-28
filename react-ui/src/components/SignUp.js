@@ -49,7 +49,8 @@ class SignUpForm extends Component {
         if (res.data.message) {
           alert(res.data.message);
         } else {
-          history.push(routes.SETTINGS);
+          alert('All Signed Up! Please sign in on the right panel!');
+          this.setState({displayName: '', username: '', email: '', passwordOne: '', passwordTwo: ''})
         }
       })
       .catch(err => console.log(err));

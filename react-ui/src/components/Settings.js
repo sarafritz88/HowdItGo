@@ -41,7 +41,10 @@ export class SettingsPage extends React.Component {
     event.preventDefault();
     axios
       .post(`${apiURL}/settings`, {email, managerName, messageContent, businessName})
-      .then(res => console.log(res))
+      .then(res => {
+        alert('Settings Updated!');
+        this.setState({managerName: '', messageContent: '', businessName: ''})
+      })
       .catch(err => console.log(err));
   };
 
