@@ -6,7 +6,6 @@ import axios from 'axios';
 
 import * as routes from '../constants/routes';
 const apiURL = 'http://localhost:5000';
-const baseURL = 'https://howd-it-go.firebaseio.com';
 const SignUpPage = ({ history }) => (
   <div className="container">
     <SignUpForm history={history} />
@@ -20,12 +19,8 @@ const INITIAL_STATE = {
   passwordOne: '',
   passwordTwo: '',
   error: null,
-  dbName: ''
+  displayName: ''
 };
-
-const byPropKey = (propertyName, value) => () => ({
-  [propertyName]: value
-});
 
 class SignUpForm extends Component {
   constructor(props) {
@@ -33,40 +28,31 @@ class SignUpForm extends Component {
     this.state = { ...INITIAL_STATE };
   }
 
-  componentDidMount() {}
+  handleChange = event => {
+    const name = event.target.name;
+    const value = event.target.value;
+    this.setState({ [name]: value });
+  };
 
-  onSubmit = async event => {
+  onSubmit = event => {
     event.preventDefault();
-    const username = this.state.username;
-    const email = this.state.email;
-    const password = this.state.passwordOne;
+    const newUser = {
+      displayName: this.state.displayName,
+      username: this.state.username,
+      email: this.state.email,
+      password: this.state.passwordOne
+    };
     const { history } = this.props;
-    let isReady = false;
-    const users = [];
-    let usernames = [];
-    await axios
-      .get(`${baseURL}/users.json?shallow=true`)
+    axios
+      .post(`${apiURL}/signup`, newUser)
       .then(res => {
-        users.push(res.data);
-        usernames = usernames.concat(Object.keys(users[0]));
-        if (usernames.includes(username)) {
-          alert('Pick a different username');
-          this.setState({ username: '' });
+        if (res.data.message) {
+          alert(res.data.message);
         } else {
-          isReady = true;
+          history.push(routes.SETTINGS);
         }
       })
       .catch(err => console.log(err));
-    if (isReady)
-      axios
-        .patch(`${apiURL}/users/${username}`, {
-          email,
-          password
-        })
-        .then(res => {
-          history.push(routes.SETTINGS);
-        })
-        .catch(err => console.log(err));
   };
 
   render() {
@@ -79,47 +65,57 @@ class SignUpForm extends Component {
       username === '';
 
     return (
-      <div className="form">
-        <h1>Sign Up</h1>
+      <div>
+        <h2>Sign Up</h2>
         <form onSubmit={this.onSubmit}>
           <div>
-            <div className="label">Name:</div>
+            <div>Display Name:</div>
             <input
-              value={username}
-              onChange={event =>
-                this.setState(byPropKey('username', event.target.value))
-              }
+              value={this.state.displayName}
+              name="displayName"
+              onChange={this.handleChange}
               type="text"
+              placeholder="John Doe"
             />
           </div>
           <div>
-            <div className="label">Email Address:</div>
+            <div>Username:</div>
             <input
-              value={email}
-              onChange={event =>
-                this.setState(byPropKey('email', event.target.value))
-              }
+              value={this.state.username}
+              name="username"
+              onChange={this.handleChange}
               type="text"
+              placeholder="JohnDoe01"
             />
           </div>
           <div>
-            <div className="label">Password:</div>
+            <div>Email Address:</div>
             <input
-              value={passwordOne}
-              onChange={event =>
-                this.setState(byPropKey('passwordOne', event.target.value))
-              }
-              type="password"
+              value={this.state.email}
+              name="email"
+              onChange={this.handleChange}
+              type="email"
+              placeholder="John@Doe.com"
             />
           </div>
           <div>
-            <div className="label">Confirm Password:</div>
+            <div>Password:</div>
             <input
-              value={passwordTwo}
-              onChange={event =>
-                this.setState(byPropKey('passwordTwo', event.target.value))
-              }
+              value={this.state.passwordOne}
+              name="passwordOne"
+              onChange={this.handleChange}
               type="password"
+              placeholder="Must be six or more characters"
+            />
+          </div>
+          <div>
+            <div>Confirm Password:</div>
+            <input
+              value={this.state.passwordTwo}
+              name="passwordTwo"
+              onChange={this.handleChange}
+              type="password"
+              placeholder="Confirm Password"
             />
           </div>
 

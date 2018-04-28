@@ -44,7 +44,7 @@ const NavigationNonAuth = () => (
       <i className="fa fa-code fa-lg fa-spin" />
     </li>
     <li>HowdItGo</li>
-      <li class="logo"> </li>
+      <li className="logo"> </li>
         {/*<Link to={routes.SIGN_UP}>Sign In</Link></li>
         <li>//<Link to={routes.LANDING}>Landing</Link></li>*/}
 
