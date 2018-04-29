@@ -6,7 +6,6 @@ import './Settings.css';
 import LeftNavigation from './LeftNav';
 
 //const urlShortener = 'https://5ly.me/api/shorten.php?url=';
-const apiURL = 'http://localhost:5000';
 
 export class SettingsPage extends React.Component {
   constructor() {
@@ -40,7 +39,7 @@ export class SettingsPage extends React.Component {
     };
     event.preventDefault();
     axios
-      .post(`${apiURL}/settings`, {email, managerName, messageContent, businessName})
+      .post(`/settings`, {email, managerName, messageContent, businessName})
       .then(res => {
         alert('Settings Updated!');
         this.setState({managerName: '', messageContent: '', businessName: ''})

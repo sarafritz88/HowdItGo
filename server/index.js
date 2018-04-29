@@ -52,7 +52,7 @@ if (cluster.isMaster) {
   const db = admin.database();
   const ref = db.ref(`/`);
   const app = express();
-  app.use(cors());
+  app.use(cors({ origin: true }));
   app.use(express.json());
   // Priority serve any static files.
   app.use(express.static(path.resolve(__dirname, '../react-ui/build')));
@@ -61,23 +61,6 @@ if (cluster.isMaster) {
   app.get('/api', (req, res) => {
     res.send({ message: 'Hello from the custom server!' });
   });
-
-  // app.patch('/users/:username', (req, res) => {
-  //   const { username } = req.params;
-  //   const { email, password } = req.body;
-  //   const usersRef = ref.child('users');
-  //   usersRef.child(`${username}`).set(
-  //     {
-  //       details: {
-  //         email: email,
-  //         password: password
-  //       }
-  //     },
-  //     err => {
-  //       if (!err) res.send({ success: 'true' });
-  //     }
-  //   );
-  // });
 
   // app.post('/message-user', (req, res) => {
   //   const message = req.body;

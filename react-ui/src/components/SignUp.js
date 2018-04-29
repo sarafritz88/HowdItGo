@@ -5,7 +5,7 @@ import { SignInForm } from './SignIn';
 import axios from 'axios';
 
 import * as routes from '../constants/routes';
-const apiURL = 'http://localhost:5000';
+
 const SignUpPage = ({ history }) => (
   <div className="container">
     <SignUpForm history={history} />
@@ -28,6 +28,13 @@ class SignUpForm extends Component {
     this.state = { ...INITIAL_STATE };
   }
 
+  componentDidMount() {
+    axios
+      .get(`/api`)
+      .then(response => console.log(response))
+      .catch(error => console.log(error));
+  }
+
   handleChange = event => {
     const name = event.target.name;
     const value = event.target.value;
@@ -44,13 +51,19 @@ class SignUpForm extends Component {
     };
     const { history } = this.props;
     axios
-      .post(`${apiURL}/signup`, newUser)
+      .post(`/signup`, newUser)
       .then(res => {
         if (res.data.message) {
           alert(res.data.message);
         } else {
           alert('All Signed Up! Please sign in on the right panel!');
-          this.setState({displayName: '', username: '', email: '', passwordOne: '', passwordTwo: ''})
+          this.setState({
+            displayName: '',
+            username: '',
+            email: '',
+            passwordOne: '',
+            passwordTwo: ''
+          });
         }
       })
       .catch(err => console.log(err));
