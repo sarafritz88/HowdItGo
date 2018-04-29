@@ -4,8 +4,6 @@ import { SignUpLink } from './SignUp';
 import { PasswordForgetLink } from './PasswordForget';
 import axios from 'axios';
 
-const apiURL = 'http://localhost:5000';
-
 const SignInPage = ({ history }) => (
   <div>
     <SignInForm history={history} />
@@ -41,7 +39,7 @@ class SignInForm extends Component {
   onSubmit = event => {
     const { history } = this.props;
     axios
-      .post(`${apiURL}/signin`, {
+      .post(`/signin`, {
         email: this.state.email,
         password: this.state.password
       })
