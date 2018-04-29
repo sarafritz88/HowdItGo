@@ -34,7 +34,7 @@ const LeftNavigation = (props, { authUser }) => (
       </div>
       <div>
         <li>
-          <Link to={routes.PASSWORD}>Password Settings</Link>
+          <Link to={routes.PASSWORD}>Account Settings</Link>
         </li>
       </div>
     </ul>

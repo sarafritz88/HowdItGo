@@ -110,7 +110,13 @@ if (cluster.isMaster) {
 
   app.post('/settings', (req, res) => {
     let username = '';
-    const { email, managerName, messageContent, businessName } = req.body;
+    const {
+      email,
+      managerName,
+      messageContent,
+      businessName,
+      sites
+    } = req.body;
     admin
       .auth()
       .getUserByEmail(email)
@@ -119,15 +125,28 @@ if (cluster.isMaster) {
         const usersRef = ref.child('users');
         usersRef
           .child(username)
-          .set({
-            managerName,
-            messageContent,
-            businessName
-          })
-          .then(response => res.send({ success: 'Successfully created!' }))
-          .catch(error => res.send(error));
+          .set({ managerName, messageContent, businessName });
+        usersRef
+          .child(username)
+          .child('sites')
+          .set([...sites]);
       })
+      .then(response => res.send({ success: 'Successfully created!' }))
       .catch(error => res.send(error));
+  });
+
+  app.post('/settings/user_settings', (req, res) => {
+    const { email } = req.body;
+    admin
+      .auth()
+      .getUserByEmail(email)
+      .then(user => user.uid)
+      .then(username => {
+        axios
+          .get(`https://howd-it-go.firebaseio.com/users/${username}.json`)
+          .then(result => res.send(result.data))
+          .catch(error => console.log(error));
+      });
   });
   // All remaining requests return the React app, so it can handle routing.
   app.get('*', function(request, response) {

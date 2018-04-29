@@ -28,13 +28,6 @@ class SignUpForm extends Component {
     this.state = { ...INITIAL_STATE };
   }
 
-  componentDidMount() {
-    axios
-      .get(`/api`)
-      .then(response => console.log(response))
-      .catch(error => console.log(error));
-  }
-
   handleChange = event => {
     const name = event.target.name;
     const value = event.target.value;
