@@ -59,6 +59,7 @@ export class SettingsPage extends React.Component {
       businessName === '' ||
       !sites.length
     ) {
+      alert('Please fill out all fields and add at least 1 Review URL');
       return;
     }
     event.preventDefault();
