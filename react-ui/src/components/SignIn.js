@@ -2,11 +2,9 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { SignUpLink } from './SignUp';
 import { PasswordForgetLink } from './PasswordForget';
-import * as routes from '../constants/routes';
 import axios from 'axios';
 
 const apiURL = 'http://localhost:5000';
-const baseURL = 'https://howd-it-go.firebaseio.com';
 
 const SignInPage = ({ history }) => (
   <div>
@@ -15,10 +13,6 @@ const SignInPage = ({ history }) => (
     <SignUpLink />
   </div>
 );
-
-const byPropKey = (propertyName, value) => () => ({
-  [propertyName]: value
-});
 
 const INITIAL_STATE = {
   email: '',
@@ -33,31 +27,37 @@ class SignInForm extends Component {
     this.state = { ...INITIAL_STATE };
   }
 
-  onSubmit = event => {
-    const { email, password } = this.state;
+  componentDidMount() {
+    localStorage.getItem('sessionCookie');
+    if (localStorage.getItem('sessionCookie')) {
+      localStorage.removeItem('sessionCookie');
+    }
+  }
 
+  handleChange = event => {
+    this.setState({ [event.target.name]: event.target.value });
+  };
+
+  onSubmit = event => {
     const { history } = this.props;
     axios
-      .get(`${apiURL}/users.json`, {
+      .post(`${apiURL}/signin`, {
         email: this.state.email,
         password: this.state.password
       })
       .then(result => {
-        console.log(result);
+        if (result.data.message) {
+          alert(result.data.message);
+          return;
+        } else {
+          localStorage.setItem('sessionCookie', result.data.sessionCookie);
+          localStorage.setItem('email', this.state.email);
+          history.push('/Settings');
+        }
       })
       .catch(err => {
         console.log(err);
       });
-    // auth
-    //   .doSignInWithEmailAndPassword(email, password)
-    //   .then(() => {
-    //     this.setState(() => ({ ...INITIAL_STATE }));
-    //     history.push(routes.SETTINGS);
-    //   })
-    //   .catch(error => {
-    //     this.setState(byPropKey('error', error));
-    //   });
-
     event.preventDefault();
   };
 
@@ -68,26 +68,24 @@ class SignInForm extends Component {
 
     return (
       <div className="form">
-        <h1>Sign In</h1>
+        <h2>Sign In</h2>
         <form onSubmit={this.onSubmit}>
           <div>
-            <div className="label">Email Address:</div>
+            <div className="label">email:</div>
             <input
               value={email}
-              onChange={event =>
-                this.setState(byPropKey('email', event.target.value))
-              }
-              type="text"
+              onChange={this.handleChange}
+              type="email"
+              name="email"
             />
           </div>
           <div>
             <div className="label">Password:</div>
             <input
               value={password}
-              onChange={event =>
-                this.setState(byPropKey('password', event.target.value))
-              }
+              onChange={this.handleChange}
               type="password"
+              name="password"
             />
           </div>
           <button disabled={isInvalid} type="submit">

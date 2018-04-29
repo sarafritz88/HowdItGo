@@ -3,6 +3,7 @@ import './comingsoon.css';
 import 'font-awesome/css/font-awesome.min.css';
 
 const ComingSoonPage = () =>
+    <body id="comingSoon">
     <div className="page">
         <label>
             <input type="checkbox"  />
@@ -35,5 +36,6 @@ const ComingSoonPage = () =>
             </div>
         </label>
     </div>
+    </body>
 
 export default ComingSoonPage;

@@ -1,13 +1,14 @@
 import React from 'react';
 import axios from 'axios';
+import { withRouter } from 'react-router';
 
 import './Settings.css';
 import LeftNavigation from './LeftNav';
 
 //const urlShortener = 'https://5ly.me/api/shorten.php?url=';
-const baseURL = 'http://localhost:5001';
+const apiURL = 'http://localhost:5000';
 
-export default class SettingsPage extends React.Component {
+export class SettingsPage extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -15,18 +16,35 @@ export default class SettingsPage extends React.Component {
       businessName: '',
       currentReviewSite: '',
       allReviewSites: [],
-      messageContent: '',
-      oldPassword: '',
-      newPassword: ''
+      messageContent: ''
     };
   }
 
+  async componentDidMount() {
+    const sessionCookie = localStorage.getItem('sessionCookie');
+
+    if (!sessionCookie) {
+      console.log('Wot you doin mate? Wheres yer cookie?');
+      this.props.history.push('/signup');
+      return;
+    }
+  }
+
   handleSubmit = event => {
+    const email = localStorage.getItem('email');
+    const managerName = this.state.managerName;
+    const messageContent = this.state.messageContent;
+    const businessName = this.state.businessName;
+    if (managerName === '' || messageContent === '' || businessName === '') {
+      return;
+    };
     event.preventDefault();
-    console.log(this.state);
     axios
-      .get(baseURL)
-      .then(res => console.log(res.data))
+      .post(`${apiURL}/settings`, {email, managerName, messageContent, businessName})
+      .then(res => {
+        alert('Settings Updated!');
+        this.setState({managerName: '', messageContent: '', businessName: ''})
+      })
       .catch(err => console.log(err));
   };
 
@@ -55,8 +73,9 @@ export default class SettingsPage extends React.Component {
             <input
               name="managerName"
               type="text"
-              placeholder="John"
+              placeholder="John Doe"
               onChange={this.handleChange}
+              required
             />
             <label>Business Name</label>
             <input
@@ -64,6 +83,7 @@ export default class SettingsPage extends React.Component {
               type="text"
               placeholder="John's Auto Shop"
               onChange={this.handleChange}
+              required
             />
             <label>Review Site URL</label>
             <input
@@ -71,6 +91,7 @@ export default class SettingsPage extends React.Component {
               type="text"
               placeholder="www.google.com/places/johnsautoshop"
               onChange={this.handleChange}
+              //required
             />
             <label>Message Content</label>
             <textarea
@@ -78,20 +99,7 @@ export default class SettingsPage extends React.Component {
               type="text"
               placeholder="Nice message content"
               onChange={this.handleChange}
-            />
-            <label>Old Password</label>
-            <input
-              name="oldPassword"
-              type="text"
-              placeholder="********"
-              onChange={this.handleChange}
-            />
-            <label>New Password</label>
-            <input
-              name="newPassword"
-              type="text"
-              placeholder="********"
-              onChange={this.handleChange}
+              required
             />
             <button onClick={this.handleSubmit}>Submit</button>
           </form>
@@ -101,93 +109,4 @@ export default class SettingsPage extends React.Component {
   }
 }
 
-// const urlShortener = 'https://5ly.me/api/shorten.php?url=';
-// const baseURL = 'https://localhost:5000';
-
-// export default class SettingsPage extends React.Component {
-//   constructor() {
-//     super();
-//     this.state = {
-//       managerName: '',
-//       businessName: '',
-//       currentReviewSite: '',
-//       allReviewSites: [],
-//       messageContent: '',
-//       oldPassword: '',
-//       newPassword: ''
-//     };
-//   }
-
-//   handleSubmit = event => {
-//     event.preventDefault();
-//     console.log(this.state);
-//   };
-
-//   handleChange = event => {
-//     const name = event.target.name;
-//     const value = event.target.value;
-//     this.setState({ [name]: value });
-//   };
-//   render() {
-//     return (
-//       <div>
-//         <div>
-//           <LeftNavigation />
-//         </div>
-//         <form
-//           action="submit"
-//           style={{
-//             display: 'flex',
-//             flexDirection: 'column',
-//             justifyContent: 'center',
-//             width: '40%'
-//           }}
-//         >
-//           <label>Manager Name</label>
-//           <input
-//             name="managerName"
-//             type="text"
-//             placeholder="John"
-//             onChange={this.handleChange}
-//           />
-//           <label>Business Name</label>
-//           <input
-//             name="businessName"
-//             type="text"
-//             placeholder="John's Auto Shop"
-//             onChange={this.handleChange}
-//           />
-//           <label>Review Site URL</label>
-//           <input
-//             name="managerName"
-//             type="text"
-//             placeholder="www.google.com/places/johnsautoshop"
-//             onChange={this.handleChange}
-//           />
-//           <label>Message Content</label>
-//           <textarea
-//             name="messageContent"
-//             type="text"
-//             placeholder="Nice message content"
-//             onChange={this.handleChange}
-//           />
-//           <label>Old Password</label>
-//           <input
-//             name="oldPassword"
-//             type="text"
-//             placeholder="********"
-//             onChange={this.handleChange}
-//           />
-//           <label>New Password</label>
-//           <input
-//             name="newPassword"
-//             type="text"
-//             placeholder="********"
-//             onChange={this.handleChange}
-//           />
-//           <button onClick={this.handleSubmit}>Submit</button>
-//         </form>
-//       </div>
-//     );
-//   }
-// }
+export default withRouter(SettingsPage);

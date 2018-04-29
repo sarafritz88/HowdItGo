@@ -4,19 +4,19 @@ html,body {
 }
 
 
-label {
+#comingSoon label {
     width: 40vw;
     height: 50vh;
     -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
     display: block;
-
     position: absolute;
     left: 50%;
     top: 50%;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     cursor: pointer;
+
 }
 
 .card {
@@ -33,6 +33,8 @@ label {
     animation: neon2 1.5s ease-in-out infinite alternate;
 
 }
+
+
 
 .card div {
     position: absolute;
@@ -56,13 +58,13 @@ label {
 
 }
 
-label:hover .card {
+#comingSoon label:hover .card {
     -webkit-transform: rotateX(20deg);
     transform: rotateX(20deg);
     box-shadow: 0 20px 20px rgba(50,50,50,.2);
 }
 
-input {
+.hidden {
     display: none;
 }
 
@@ -71,10 +73,14 @@ input {
     -webkit-transform: rotateX(180deg);
 }
 
-label:hover :checked + .card {
+#comingSoon label:hover :checked + .card {
     transform: rotateX(160deg);
     -webkit-transform: rotateX(160deg);
     box-shadow: 0 20px 20px rgba(255,255,255,.2);
+}
+
+#comingSoon input {
+    display:none;
 }
 
 .cardContent {
