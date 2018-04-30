@@ -31,10 +31,10 @@ export class SettingsPage extends React.Component {
       .then(response => {
         this.setState({
           ...this.state,
-          businessName: response.data.businessName,
-          managerName: response.data.managerName,
-          messageContent: response.data.messageContent,
-          allReviewSites: response.data.sites
+          businessName: response.data.businessName || '',
+          managerName: response.data.managerName || '',
+          messageContent: response.data.messageContent || '',
+          allReviewSites: response.data.sites || []
         });
       })
       .catch(error => console.log(error));
@@ -143,26 +143,30 @@ export class SettingsPage extends React.Component {
             >
               Add Site
             </button>
-            {this.state.allReviewSites.map((site, index) => {
-              return (
-                <div
-                  key={`${site}${index}`}
-                  style={{
-                    display: 'flex',
-                    justifyContent: 'space-around',
-                    alignItems: 'center'
-                  }}
-                >
-                  <p>{site}</p>
-                  <button
-                    style={{ height: '25px', width: '25px' }}
-                    onClick={() => this.deleteSite(site)}
+            {this.state.allReviewSites ? (
+              this.state.allReviewSites.map((site, index) => {
+                return (
+                  <div
+                    key={`${site}${index}`}
+                    style={{
+                      display: 'flex',
+                      justifyContent: 'space-around',
+                      alignItems: 'center'
+                    }}
                   >
-                    X
-                  </button>
-                </div>
-              );
-            })}
+                    <p>{site}</p>
+                    <button
+                      style={{ height: '25px', width: '25px' }}
+                      onClick={() => this.deleteSite(site)}
+                    >
+                      X
+                    </button>
+                  </div>
+                );
+              })
+            ) : (
+              <p>Nothing Added yet</p>
+            )}
             <label>Message Content</label>
             <textarea
               name="messageContent"
