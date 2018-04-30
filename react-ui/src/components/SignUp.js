@@ -7,7 +7,7 @@ import axios from 'axios';
 import * as routes from '../constants/routes';
 
 const SignUpPage = ({ history }) => (
-  <div className="container">
+  <div className="page">
     <SignUpForm history={history} />
     <SignInForm history={history} />
   </div>
@@ -72,8 +72,9 @@ class SignUpForm extends Component {
       username === '';
 
     return (
-      <div>
-        <h2>Sign Up</h2>
+        <div class="signup">
+          <div className="signuphead">Sign Up</div>
+      <div className="form">
         <form onSubmit={this.onSubmit}>
           <div>
             <div>Display Name:</div>
@@ -133,6 +134,7 @@ class SignUpForm extends Component {
           {error && <p>{error.message}</p>}
         </form>
       </div>
+        </div>
     );
   }
 }
