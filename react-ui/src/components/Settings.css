@@ -4,10 +4,11 @@ label {
   height: initial;
   width: initial;
   position: initial;
-  transform: initial
+  transform: initial;
 }
 
 textarea {
   margin: 20px;
+  height: 300px;
+  resize: none;
 }
-
