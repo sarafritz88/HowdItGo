@@ -7,16 +7,15 @@ const cluster = require('cluster');
 const numCPUs = require('os').cpus().length;
 
 const PORT = process.env.PORT || 5000;
-// const accountSid = process.env.TWILIO_TEST_ACCOUNT_SID;
-// const authToken = process.env.TWILIO_TEST_AUTHTOKEN;
-// const client = new twilio(accountSid, authToken);
+const accountSid = process.env.TWILIO_TEST_ACCOUNT_SID;
+const authToken = process.env.TWILIO_TEST_AUTHTOKEN;
+const client = new twilio(accountSid, authToken);
 
 const baseURL = 'https://howd-it-go.firebaseio.com';
 const axios = require('axios');
 const firebase = require('firebase');
 const admin = require('firebase-admin');
 
-//const serviceAccount = require('./service-account-key.json');
 // Multi-process to utilize all CPU cores.
 if (cluster.isMaster) {
   console.error(`Node cluster master ${process.pid} is running`);
@@ -61,17 +60,39 @@ if (cluster.isMaster) {
     res.send({ message: 'Hello from the custom server!' });
   });
 
-  // app.post('/message-user', (req, res) => {
-  //   const message = req.body;
-  //   client.messages
-  //     .create({
-  //       body: message.text,
-  //       to: '+18569744731', // Text this number
-  //       from: '+15612796790' // From a valid Twilio number
-  //     })
-  //     .then(response => res.json(response))
-  //     .catch(err => res.json(err));
-  // });
+  app.post('/message-user', (req, res) => {
+    console.log(req.body);
+    const {
+      firstName,
+      lastName,
+      phoneNumber,
+      messageContent,
+      email
+    } = req.body;
+    client.messages
+      .create({
+        body: messageContent,
+        to: `+1${phoneNumber}`, // Text this number
+        from: '+15612796790' // From a valid Twilio number
+      })
+      .then(() => {
+        admin
+          .auth()
+          .getUserByEmail(email)
+          .then(user => user.uid)
+          .then(username => {
+            const usersRef = ref.child('users');
+            usersRef
+              .child(username)
+              .child('messages')
+              .child(`${firstName}${lastName}${phoneNumber}`)
+              .update({ firstName, lastName, clickedLink: false });
+          })
+          .then(() => res.send({ success: 'Successfully created!' }))
+          .catch(error => res.send(error));
+      })
+      .catch(err => res.json(err));
+  });
   app.post(`/signup`, (req, res) => {
     admin
       .auth()
