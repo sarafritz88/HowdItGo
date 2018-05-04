@@ -1,6 +1,5 @@
 # dependencies
 /node_modules
-node_modules
 
 # testing
 /coverage
@@ -19,5 +18,3 @@ node_modules
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-node_modules
-service-account-key.json
