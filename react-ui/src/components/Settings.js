@@ -31,10 +31,18 @@ export class SettingsPage extends React.Component {
       .then(response => {
         this.setState({
           ...this.state,
-          businessName: response.data.businessName,
-          managerName: response.data.managerName,
-          messageContent: response.data.messageContent,
-          allReviewSites: response.data.sites
+          businessName: response.data.businessName || '',
+          managerName: response.data.managerName || '',
+          messageContent: response.data.messageContent || '',
+          allReviewSites: response.data.sites || []
+        });
+      })
+      .then(() => {
+        this.setState({
+          ...this.state,
+          messageContent: this.modifyMessageContentFromDB(
+            this.state.messageContent
+          )
         });
       })
       .catch(error => console.log(error));
@@ -47,11 +55,11 @@ export class SettingsPage extends React.Component {
     this.setState({ ...this.state, allReviewSites: sites });
   };
 
-  handleSubmit = event => {
-    const email = localStorage.getItem('email');
+  handleSubmit = async event => {
+    const email = await localStorage.getItem('email');
     const sites = this.state.allReviewSites;
     const managerName = this.state.managerName;
-    const messageContent = this.state.messageContent;
+    let messageContent = this.state.messageContent;
     const businessName = this.state.businessName;
     if (
       managerName === '' ||
@@ -62,7 +70,7 @@ export class SettingsPage extends React.Component {
       alert('Please fill out all fields and add at least 1 Review URL');
       return;
     }
-    event.preventDefault();
+    messageContent = await this.modifyMessageContentToDB(messageContent);
     axios
       .post(`/settings`, {
         email,
@@ -93,6 +101,41 @@ export class SettingsPage extends React.Component {
 
   handleChange = event => {
     this.setState({ [event.target.name]: event.target.value });
+  };
+
+  modifyMessageContentToDB = message => {
+    const manager = /<manager name>/gi;
+    const businessName = /<business name>/gi;
+    const link = /<link>/gi;
+    let newMessage = message.replace(
+      new RegExp(manager, 'g'),
+      this.state.managerName
+    );
+    newMessage = newMessage.replace(
+      new RegExp(businessName, 'g'),
+      this.state.businessName
+    );
+    newMessage = newMessage.replace(
+      new RegExp(link, 'g'),
+      this.state.allReviewSites[0]
+    );
+    return newMessage;
+  };
+
+  modifyMessageContentFromDB = message => {
+    const manager = this.state.managerName;
+    const businessName = this.state.businessName;
+    const link = this.state.allReviewSites[0];
+    let newMessage = message.replace(
+      new RegExp(manager, 'g'),
+      '<manager name>'
+    );
+    newMessage = newMessage.replace(
+      new RegExp(businessName, 'g'),
+      '<business name>'
+    );
+    newMessage = newMessage.replace(new RegExp(link, 'g'), '<link>');
+    return newMessage;
   };
 
   render() {
@@ -135,7 +178,6 @@ export class SettingsPage extends React.Component {
               placeholder="www.google.com/places/johnsautoshop"
               onChange={this.handleChange}
               value={this.state.currentReviewSite}
-              //required
             />
             <button
               title="Add Site"
@@ -143,26 +185,30 @@ export class SettingsPage extends React.Component {
             >
               Add Site
             </button>
-            {this.state.allReviewSites.map((site, index) => {
-              return (
-                <div
-                  key={`${site}${index}`}
-                  style={{
-                    display: 'flex',
-                    justifyContent: 'space-around',
-                    alignItems: 'center'
-                  }}
-                >
-                  <p>{site}</p>
-                  <button
-                    style={{ height: '25px', width: '25px' }}
-                    onClick={() => this.deleteSite(site)}
+            {this.state.allReviewSites ? (
+              this.state.allReviewSites.map((site, index) => {
+                return (
+                  <div
+                    key={`${site}${index}`}
+                    style={{
+                      display: 'flex',
+                      justifyContent: 'space-around',
+                      alignItems: 'center'
+                    }}
                   >
-                    X
-                  </button>
-                </div>
-              );
-            })}
+                    <p>{site}</p>
+                    <button
+                      style={{ height: '25px', width: '25px' }}
+                      onClick={() => this.deleteSite(site)}
+                    >
+                      X
+                    </button>
+                  </div>
+                );
+              })
+            ) : (
+              <p>No Sites Yet</p>
+            )}
             <label>Message Content</label>
             <textarea
               name="messageContent"

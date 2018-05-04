@@ -8,8 +8,10 @@ import * as routes from '../constants/routes';
 
 const SignUpPage = ({ history }) => (
   <div className="page">
+
     <SignUpForm history={history} />
     <SignInForm history={history} />
+
   </div>
 );
 
@@ -72,69 +74,69 @@ class SignUpForm extends Component {
       username === '';
 
     return (
-        <div class="signup">
-          <div className="signuphead">Sign Up</div>
-      <div className="form">
-        <form onSubmit={this.onSubmit}>
-          <div>
-            <div>Display Name:</div>
-            <input
-              value={this.state.displayName}
-              name="displayName"
-              onChange={this.handleChange}
-              type="text"
-              placeholder="John Doe"
-            />
-          </div>
-          <div>
-            <div>Username:</div>
-            <input
-              value={this.state.username}
-              name="username"
-              onChange={this.handleChange}
-              type="text"
-              placeholder="JohnDoe01"
-            />
-          </div>
-          <div>
-            <div>Email Address:</div>
-            <input
-              value={this.state.email}
-              name="email"
-              onChange={this.handleChange}
-              type="email"
-              placeholder="John@Doe.com"
-            />
-          </div>
-          <div>
-            <div>Password:</div>
-            <input
-              value={this.state.passwordOne}
-              name="passwordOne"
-              onChange={this.handleChange}
-              type="password"
-              placeholder="Must be six or more characters"
-            />
-          </div>
-          <div>
-            <div>Confirm Password:</div>
-            <input
-              value={this.state.passwordTwo}
-              name="passwordTwo"
-              onChange={this.handleChange}
-              type="password"
-              placeholder="Confirm Password"
-            />
-          </div>
+      <div className="signup">
+        <div className="signuphead">Sign Up</div>
+        <div className="form">
+          <form onSubmit={this.onSubmit}>
+            <div>
+              <div>Display Name:</div>
+              <input
+                value={this.state.displayName}
+                name="displayName"
+                onChange={this.handleChange}
+                type="text"
+                placeholder="John Doe"
+              />
+            </div>
+            <div>
+              <div>Username:</div>
+              <input
+                value={this.state.username}
+                name="username"
+                onChange={this.handleChange}
+                type="text"
+                placeholder="JohnDoe01"
+              />
+            </div>
+            <div>
+              <div>Email Address:</div>
+              <input
+                value={this.state.email}
+                name="email"
+                onChange={this.handleChange}
+                type="email"
+                placeholder="John@Doe.com"
+              />
+            </div>
+            <div>
+              <div>Password:</div>
+              <input
+                value={this.state.passwordOne}
+                name="passwordOne"
+                onChange={this.handleChange}
+                type="password"
+                placeholder="Must be six or more characters"
+              />
+            </div>
+            <div>
+              <div>Confirm Password:</div>
+              <input
+                value={this.state.passwordTwo}
+                name="passwordTwo"
+                onChange={this.handleChange}
+                type="password"
+                placeholder="Confirm Password"
+              />
+            </div>
 
-          <button disabled={isInvalid || this.usernameTaken} type="submit">
-            Sign Up
-          </button>
+            <button disabled={isInvalid || this.usernameTaken} type="submit">
+              Sign Up
+            </button>
 
-          {error && <p>{error.message}</p>}
-        </form>
-      </div>
+            {error && <p>{error.message}</p>}
+          </form>
         </div>
+      </div>
     );
   }
 }
