@@ -72,7 +72,7 @@ if (cluster.isMaster) {
     client.messages
       .create({
         body: messageContent,
-        to: `+1${phoneNumber}`, // Text this number
+        to: `${phoneNumber}`, // Text this number
         from: '+15612796790' // From a valid Twilio number
       })
       .then(() => {
