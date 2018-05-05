@@ -8,8 +8,10 @@ import * as routes from '../constants/routes';
 
 const SignUpPage = ({ history }) => (
   <div className="page">
+
     <SignUpForm history={history} />
     <SignInForm history={history} />
+
   </div>
 );
 
