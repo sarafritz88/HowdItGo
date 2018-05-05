@@ -6,6 +6,7 @@
   width: 30vw;
   height: 50vh;
   color: white;
+
 }
 
 .signup {
@@ -20,16 +21,27 @@
 
 .signuphead {
   transform: rotate(270deg);
-  font-size: 12vh;
+
+  font-size: 10vh;
   color: #f99d2c;
   white-space: nowrap;
   font-family: 'Jacques Francois Shadow', cursive;
-  margin: -5vw;
+  margin: -10vw;
 }
 
 .in {
   transform: rotate(90deg);
 }
+
+
+
+
+@media only screen and (max-width: 950px) {
+  .signuphead {
+    font-size: 6vh;
+  }
+}
+
 
 @media only screen and (max-width: 700px) {
   .page {
@@ -43,5 +55,6 @@
   .signuphead {
     transform: none;
     margin-bottom: 2vh;
+    font-size: 6vw;
   }
 }
