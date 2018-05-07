@@ -1,9 +1,9 @@
 .lnavcontainer {
-  height: 100vh;
-  width: 30vw;
-  /* position: absolute; */
-  top: 57px;
-  left: 0px;
+  height: 10vh;
+  width: 100vw;
+  position: absolute;
+  bottom: 5vh;
+  left: .5vw;
   background: #4ca1af; /* fallback for old browsers */
   background: -webkit-linear-gradient(
     to top,
@@ -19,9 +19,7 @@
   flex-direction: column;
 }
 .leftNav {
-  height: 100vh;
   display: flex;
-  flex-direction: column;
   justify-content: center;
 }
 h2 {

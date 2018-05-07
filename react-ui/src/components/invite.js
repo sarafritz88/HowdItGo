@@ -1,6 +1,7 @@
 import React from 'react';
 import LeftNavigation from './LeftNav';
 import axios from 'axios';
+import { PhoneNumberFormat, PhoneNumberUtil } from 'google-libphonenumber';
 
 class InvitePage extends React.Component {
   state = {
@@ -9,6 +10,21 @@ class InvitePage extends React.Component {
     phoneNumber: '',
     messageContent: ''
   };
+
+  validatePhoneNumber(phoneNumber) {
+    try {
+      const phoneUtil = PhoneNumberUtil.getInstance();
+
+      if (phoneUtil.isValidNumber(phoneUtil.parse(phoneNumber))) {
+        return phoneUtil.format(
+          phoneUtil.parse(phoneNumber),
+          PhoneNumberFormat.E164
+        );
+      }
+    } catch (e) {
+      return e;
+    }
+  }
 
   handleChange = event => {
     this.setState({ [event.target.name]: event.target.value });
@@ -20,7 +36,7 @@ class InvitePage extends React.Component {
     const messageDetails = {
       firstName,
       lastName,
-      phoneNumber,
+      phoneNumber: this.validatePhoneNumber(`+1${phoneNumber}`),
       messageContent,
       email
     };
@@ -29,7 +45,10 @@ class InvitePage extends React.Component {
     }
     axios
       .post('/message-user', messageDetails)
-      .then(response => console.log(response))
+      .then(response => {
+        alert('Message Sent!');
+        this.setState({ firstName: '', lastName: '', phoneNumber: '' });
+      })
       .catch(err => console.log(err));
   };
 
@@ -53,6 +72,7 @@ class InvitePage extends React.Component {
 
   render() {
     return (
+        <body id="invitePage">
       <div className="page">
         <div>
           <LeftNavigation />
@@ -92,6 +112,7 @@ class InvitePage extends React.Component {
           <button onClick={this.handleSend}>Send</button>
         </div>
       </div>
+        </body>
     );
   }
 }

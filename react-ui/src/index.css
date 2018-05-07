@@ -15,3 +15,26 @@ body {
 .col-auto {
   background-color: pink;
 }
+.page {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+}
+
+
+.content {
+  height: 70vh;
+  width: 90vw;
+  padding: 10vh;
+  background: #c9d6ff; /* fallback for old browsers */
+  background: linear-gradient(
+          to bottom,
+          #e2e2e2,
+          #c9d6ff
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 5px;
+}

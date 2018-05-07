@@ -144,15 +144,16 @@ export class SettingsPage extends React.Component {
         <div>
           <LeftNavigation />
         </div>
-        <div className="content" style={{ width: '100%' }}>
+        <div className="content" >
+
           <div
-            style={{
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'center',
-              width: '100%'
-            }}
+              style={{
+                  display: 'flex',
+                  justifyContent: 'space-around',
+                  alignItems: 'center'
+              }}
           >
+            <div className="left">
             <label>Manager Name</label>
             <input
               name="managerName"
@@ -190,11 +191,7 @@ export class SettingsPage extends React.Component {
                 return (
                   <div
                     key={`${site}${index}`}
-                    style={{
-                      display: 'flex',
-                      justifyContent: 'space-around',
-                      alignItems: 'center'
-                    }}
+
                   >
                     <p>{site}</p>
                     <button
@@ -209,8 +206,12 @@ export class SettingsPage extends React.Component {
             ) : (
               <p>No Sites Yet</p>
             )}
+            </div>
+            <div className="right">
+
             <label>Message Content</label>
             <textarea
+  id="messageContent"
               name="messageContent"
               type="text"
               placeholder="Nice message content"
@@ -219,8 +220,10 @@ export class SettingsPage extends React.Component {
               required
             />
             <button onClick={this.handleSubmit}>Submit</button>
+
           </div>
         </div>
+      </div>
       </div>
     );
   }
