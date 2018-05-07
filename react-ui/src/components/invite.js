@@ -42,6 +42,7 @@ class InvitePage extends React.Component {
     };
     if (!messageContent.length) {
       alert('Go to Settings and add a nice message to your customers!');
+      return;
     }
     axios
       .post('/message-user', messageDetails)
