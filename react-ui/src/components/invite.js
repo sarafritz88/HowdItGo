@@ -72,6 +72,7 @@ class InvitePage extends React.Component {
 
   render() {
     return (
+        <body id="invitePage">
       <div className="page">
         <div>
           <LeftNavigation />
@@ -111,6 +112,7 @@ class InvitePage extends React.Component {
           <button onClick={this.handleSend}>Send</button>
         </div>
       </div>
+        </body>
     );
   }
 }
