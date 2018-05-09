@@ -154,7 +154,7 @@ export class SettingsPage extends React.Component {
               }}
           >
             <div className="left">
-            <label>Manager Name</label>
+            <label>Manager Name:</label>
             <input
               name="managerName"
               type="text"
@@ -163,7 +163,7 @@ export class SettingsPage extends React.Component {
               value={this.state.managerName}
               required
             />
-            <label>Business Name</label>
+            <label>Business Name:</label>
             <input
               name="businessName"
               type="text"
@@ -172,7 +172,7 @@ export class SettingsPage extends React.Component {
               value={this.state.businessName}
               required
             />
-            <label>Review Site URL</label>
+            <label>Review Site URL:</label>
             <input
               name="currentReviewSite"
               type="text"
@@ -181,6 +181,7 @@ export class SettingsPage extends React.Component {
               value={this.state.currentReviewSite}
             />
             <button
+                style={{ height: '5vh'}}
               title="Add Site"
               onClick={() => this.addSite(this.state.currentReviewSite)}
             >
@@ -193,23 +194,28 @@ export class SettingsPage extends React.Component {
                     key={`${site}${index}`}
 
                   >
-                    <p>{site}</p>
+                    <p1>{site}
                     <button
-                      style={{ height: '25px', width: '25px' }}
+                      style={{ height: '3vh', width: '3vh' }}
                       onClick={() => this.deleteSite(site)}
                     >
                       X
-                    </button>
+                    </button></p1>
                   </div>
                 );
               })
             ) : (
               <p>No Sites Yet</p>
             )}
+
+
+
             </div>
+
             <div className="right">
 
-            <label>Message Content</label>
+            <label>Message Content: </label>
+              Customize the message your customer receives. You do not need to add the review site to this section.
             <textarea
   id="messageContent"
               name="messageContent"

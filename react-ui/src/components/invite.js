@@ -79,21 +79,24 @@ class InvitePage extends React.Component {
         </div>
         <div className="content">
           <h2>Customer Info</h2>
+Enter your customers first name, last name and phone number to send them an invitation to leave a review.
           <div
             style={{
               display: 'flex',
               flexDirection: 'column',
-              justifyContent: 'center',
               alignItems: 'center'
             }}
           >
+            <label> Customer First Name: </label>
             <input
+
               placeholder="Customer first name"
               name="firstName"
               value={this.state.firstName}
               type="text"
               onChange={this.handleChange}
             />
+            <label>Customer Last Name: </label>
             <input
               placeholder="Customer last name"
               name="lastName"
@@ -101,6 +104,7 @@ class InvitePage extends React.Component {
               type="text"
               onChange={this.handleChange}
             />
+            <label>Customer Phone Number: </label>
             <input
               placeholder="Customer phone number"
               name="phoneNumber"
