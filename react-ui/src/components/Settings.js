@@ -153,7 +153,7 @@ export class SettingsPage extends React.Component {
                   alignItems: 'center'
               }}
           >
-            <div className="left">
+            <div className="leftS">
             <label>Manager Name:</label>
             <input
               name="managerName"
@@ -212,7 +212,7 @@ export class SettingsPage extends React.Component {
 
             </div>
 
-            <div className="right">
+            <div className="rightS">
 
             <label>Message Content: </label>
               Customize the message your customer receives. You do not need to add the review site to this section.

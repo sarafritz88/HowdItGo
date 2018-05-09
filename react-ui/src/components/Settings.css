@@ -1,5 +1,5 @@
 
-.left {
+.leftS {
     height: 50vh;
     width: 50vh;
     padding: 3vh;
@@ -9,7 +9,7 @@
 
 }
 
-.right {
+.rightS {
     width: 50vh;
     padding: 3vh;
     display: flex;

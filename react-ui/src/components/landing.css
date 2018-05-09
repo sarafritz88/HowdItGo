@@ -10,7 +10,7 @@ html, body {
 
 }
 
-.container {
+#landing-page .container {
     background: #fe8c00;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to bottom right, #fc6620 3%, #07003b);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to bottom right, #fc6620 3%, #fc2033); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
@@ -53,7 +53,7 @@ html, body {
     align-items: center;
 }
 
-.lower {
+#landing-page .lower {
     width: 85vw;
     height: 30vh;
     background: #D3CCE3;  /* fallback for old browsers */
@@ -67,14 +67,14 @@ html, body {
 
 }
 
-h1 {
+#landing-page h1 {
     font-size: 12vw;
     font-family: 'Jacques Francois Shadow', cursive;
     text-shadow: 4px 4px 6px #000000;
     margin-top: 10vh;
 }
 
-h4 {
+#landing-page h4 {
     font-size: 2.5vh;
     margin-right: 4vw;
 }
@@ -85,12 +85,12 @@ h6 {
     margin-top: -5px;
 }
 
-p {
+#landing-page p {
     margin-top: 3vh;
 
 }
 
-.box {
+#landing-page .box {
     height: 35vh;
     width: 30vw;
     background-color: white;
@@ -175,7 +175,7 @@ p {
     margin-left:-10vw;
 }
 
-.right-message .message-dots {
+#landing-page .right-message .message-dots {
     right: 0;
 }
 
@@ -212,7 +212,7 @@ p {
     justify-content: center;
 }
 
-a {
+#landing-page a {
     color:#fff;
 }
 a:hover{
@@ -270,6 +270,9 @@ a:hover{
     right: 0;
 
 }
+
+
+
 
 
 
