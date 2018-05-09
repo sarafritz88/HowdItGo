@@ -144,16 +144,17 @@ export class SettingsPage extends React.Component {
         <div>
           <LeftNavigation />
         </div>
-        <div className="content" style={{ width: '100%' }}>
+        <div className="content" >
+
           <div
-            style={{
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'center',
-              width: '100%'
-            }}
+              style={{
+                  display: 'flex',
+                  justifyContent: 'space-around',
+                  alignItems: 'center'
+              }}
           >
-            <label>Manager Name</label>
+            <div className="left">
+            <label>Manager Name:</label>
             <input
               name="managerName"
               type="text"
@@ -162,7 +163,7 @@ export class SettingsPage extends React.Component {
               value={this.state.managerName}
               required
             />
-            <label>Business Name</label>
+            <label>Business Name:</label>
             <input
               name="businessName"
               type="text"
@@ -171,7 +172,7 @@ export class SettingsPage extends React.Component {
               value={this.state.businessName}
               required
             />
-            <label>Review Site URL</label>
+            <label>Review Site URL:</label>
             <input
               name="currentReviewSite"
               type="text"
@@ -180,6 +181,7 @@ export class SettingsPage extends React.Component {
               value={this.state.currentReviewSite}
             />
             <button
+                style={{ height: '5vh'}}
               title="Add Site"
               onClick={() => this.addSite(this.state.currentReviewSite)}
             >
@@ -190,27 +192,32 @@ export class SettingsPage extends React.Component {
                 return (
                   <div
                     key={`${site}${index}`}
-                    style={{
-                      display: 'flex',
-                      justifyContent: 'space-around',
-                      alignItems: 'center'
-                    }}
+
                   >
-                    <p>{site}</p>
+                    <p1>{site}
                     <button
-                      style={{ height: '25px', width: '25px' }}
+                      style={{ height: '3vh', width: '3vh' }}
                       onClick={() => this.deleteSite(site)}
                     >
                       X
-                    </button>
+                    </button></p1>
                   </div>
                 );
               })
             ) : (
               <p>No Sites Yet</p>
             )}
-            <label>Message Content</label>
+
+
+
+            </div>
+
+            <div className="right">
+
+            <label>Message Content: </label>
+              Customize the message your customer receives. You do not need to add the review site to this section.
             <textarea
+  id="messageContent"
               name="messageContent"
               type="text"
               placeholder="Nice message content"
@@ -219,8 +226,10 @@ export class SettingsPage extends React.Component {
               required
             />
             <button onClick={this.handleSubmit}>Submit</button>
+
           </div>
         </div>
+      </div>
       </div>
     );
   }

@@ -1,14 +1,24 @@
-label {
-  margin: 5px 20px;
-  color: white;
-  height: initial;
-  width: initial;
-  position: initial;
-  transform: initial;
+
+.left {
+    height: 50vh;
+    width: 50vh;
+    padding: 3vh;
+    border-right: 1px solid black;
+    display: flex;
+    flex-direction: column;
+
 }
 
-textarea {
-  margin: 20px;
-  height: 300px;
-  resize: none;
+.right {
+    width: 50vh;
+    padding: 3vh;
+    display: flex;
+    flex-direction: column;
+
+
 }
+
+#messageContent {
+    height: 40vh;
+}
+

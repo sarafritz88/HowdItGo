@@ -1,29 +1,34 @@
 .lnavcontainer {
-  height: 100vh;
-  width: 30vw;
-  /* position: absolute; */
-  top: 57px;
-  left: 0px;
-  background: #4ca1af; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to top,
-    #c4e0e5,
-    #4ca1af
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to top,
-    #c4e0e5,
-    #4ca1af
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  height: 10vh;
+  width: 100vw;
+  position: absolute;
+  bottom: 1vh;
+  left: .5vw;
+  background-image: linear-gradient(135deg, #fdfcfb 20%, #e2d1c3 100%);
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
 }
 .leftNav {
-  height: 100vh;
   display: flex;
-  flex-direction: column;
   justify-content: center;
+
 }
 h2 {
-  color: white;
+  color: black;
 }
+
+.lmenu {
+  color: black;
+  font-size: 2vh;
+  list-style-type: none;
+
+}
+
+.lmenu a{
+  color: black;
+
+}
+
+
