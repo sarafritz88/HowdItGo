@@ -8,10 +8,8 @@ import * as routes from '../constants/routes';
 
 const SignUpPage = ({ history }) => (
   <div className="page">
-
     <SignUpForm history={history} />
     <SignInForm history={history} />
-
   </div>
 );
 
@@ -51,7 +49,9 @@ class SignUpForm extends Component {
         if (res.data.message) {
           alert(res.data.message);
         } else {
-          alert('All Signed Up! Please sign in on the right panel!');
+          alert(
+            'All Signed Up! To let us know you are a real person, sign in with your email in password in the Sign In Section please!'
+          );
           this.setState({
             displayName: '',
             username: '',

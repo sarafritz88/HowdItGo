@@ -61,7 +61,6 @@ if (cluster.isMaster) {
   });
 
   app.post('/message-user', (req, res) => {
-    console.log(req.body);
     const {
       firstName,
       lastName,
@@ -93,6 +92,26 @@ if (cluster.isMaster) {
       })
       .catch(err => res.json(err));
   });
+
+  app.post('/get-customers', (req, res) => {
+    const { email } = req.body;
+    admin
+      .auth()
+      .getUserByEmail(email)
+      .then(user => user.uid)
+      .then(username => {
+        ref
+          .child('users')
+          .child(username)
+          .child('messages')
+          .on('value', message => {
+            res.json({
+              customers: message.val()
+            });
+          });
+      });
+  });
+
   app.post(`/signup`, (req, res) => {
     admin
       .auth()
@@ -168,6 +187,8 @@ if (cluster.isMaster) {
           .catch(error => console.log(error));
       });
   });
+
+  
   // All remaining requests return the React app, so it can handle routing.
   app.get('*', function(request, response) {
     response.sendFile(

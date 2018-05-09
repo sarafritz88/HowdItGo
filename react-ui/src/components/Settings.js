@@ -123,6 +123,8 @@ export class SettingsPage extends React.Component {
   };
 
   modifyMessageContentFromDB = message => {
+    if (!message.length)
+      return 'Use <manager name>, <business name>, and <link>. And we will populate it with what you have filled out on the left!';
     const manager = this.state.managerName;
     const businessName = this.state.businessName;
     const link = this.state.allReviewSites[0];
@@ -144,92 +146,86 @@ export class SettingsPage extends React.Component {
         <div>
           <LeftNavigation />
         </div>
-        <div className="content" >
-
+        <div className="content">
           <div
-              style={{
-                  display: 'flex',
-                  justifyContent: 'space-around',
-                  alignItems: 'center'
-              }}
+            style={{
+              display: 'flex',
+              justifyContent: 'space-around',
+              alignItems: 'center'
+            }}
           >
-            <div className="leftS">
-            <label>Manager Name:</label>
-            <input
-              name="managerName"
-              type="text"
-              placeholder="John Doe"
-              onChange={this.handleChange}
-              value={this.state.managerName}
-              required
-            />
-            <label>Business Name:</label>
-            <input
-              name="businessName"
-              type="text"
-              placeholder="John's Auto Shop"
-              onChange={this.handleChange}
-              value={this.state.businessName}
-              required
-            />
-            <label>Review Site URL:</label>
-            <input
-              name="currentReviewSite"
-              type="text"
-              placeholder="www.google.com/places/johnsautoshop"
-              onChange={this.handleChange}
-              value={this.state.currentReviewSite}
-            />
-            <button
-                style={{ height: '5vh'}}
-              title="Add Site"
-              onClick={() => this.addSite(this.state.currentReviewSite)}
-            >
-              Add Site
-            </button>
-            {this.state.allReviewSites ? (
-              this.state.allReviewSites.map((site, index) => {
-                return (
-                  <div
-                    key={`${site}${index}`}
-
-                  >
-                    <p1>{site}
-                    <button
-                      style={{ height: '3vh', width: '3vh' }}
-                      onClick={() => this.deleteSite(site)}
-                    >
-                      X
-                    </button></p1>
-                  </div>
-                );
-              })
-            ) : (
-              <p>No Sites Yet</p>
-            )}
-
-
-
+            <div className="left">
+              <label>Manager Name:</label>
+              <input
+                name="managerName"
+                type="text"
+                placeholder="John Doe"
+                onChange={this.handleChange}
+                value={this.state.managerName}
+                required
+              />
+              <label>Business Name:</label>
+              <input
+                name="businessName"
+                type="text"
+                placeholder="John's Auto Shop"
+                onChange={this.handleChange}
+                value={this.state.businessName}
+                required
+              />
+              <label>Review Site URL:</label>
+              <input
+                name="currentReviewSite"
+                type="text"
+                placeholder="www.google.com/places/johnsautoshop"
+                onChange={this.handleChange}
+                value={this.state.currentReviewSite}
+              />
+              <button
+                style={{ height: '5vh' }}
+                title="Add Site"
+                onClick={() => this.addSite(this.state.currentReviewSite)}
+              >
+                Add Site
+              </button>
+              {this.state.allReviewSites ? (
+                this.state.allReviewSites.map((site, index) => {
+                  return (
+                    <div key={`${site}${index}`}>
+                      <p1>
+                        {site}
+                        <button
+                          style={{ height: '3vh', width: '3vh' }}
+                          onClick={() => this.deleteSite(site)}
+                        >
+                          X
+                        </button>
+                      </p1>
+                    </div>
+                  );
+                })
+              ) : (
+                <p>No Sites Yet</p>
+              )}
             </div>
 
-            <div className="rightS">
-
-            <label>Message Content: </label>
-              Customize the message your customer receives. You do not need to add the review site to this section.
-            <textarea
-  id="messageContent"
-              name="messageContent"
-              type="text"
-              placeholder="Nice message content"
-              onChange={this.handleChange}
-              value={this.state.messageContent}
-              required
-            />
-            <button onClick={this.handleSubmit}>Submit</button>
-
+            <div className="right">
+              <label>Message Content: </label>
+              Customize the message your customer receives. You do not need to
+              add the review site to this section.
+              <textarea
+                id="messageContent"
+                name="messageContent"
+                type="text"
+                placeholder="Nice message content"
+                onChange={this.handleChange}
+                value={this.state.messageContent}
+                required
+              />
+              <button onClick={this.handleSubmit}>Submit</button>
+            </div>
           </div>
         </div>
-      </div>
       </div>
     );
   }
