@@ -7,6 +7,7 @@ import 'font-awesome/css/font-awesome.min.css';
 
 
 const LandingPage = () =>
+    <body id="landing-page">
     <div className="container">
         <div className="overlay">
         <div className="top">
@@ -31,15 +32,16 @@ const LandingPage = () =>
                     </div></div>
                 </div>
                 <div className="right">
-<p>
+<p1>
                 <h4> Gaining customer feedback and online review management has never been easier.  </h4>
                 <h4>Easily drive reviews of your business and improve customer service with HowdItGo Customer Interaction Software. </h4>
-</p>
+</p1>
                     <button className="button-two"><span><Link to={routes.SIGN_UP}> Get Started</Link></span></button>
                 </div>
             </div>
         </div>
         </div>
+    </body>
 
 
 export default LandingPage;
