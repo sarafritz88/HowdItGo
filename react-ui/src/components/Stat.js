@@ -1,7 +1,7 @@
 import React from 'react';
 import LeftNavigation from './LeftNav';
 import axios from 'axios';
-
+import './Stat.css';
 class StatsPage extends React.Component {
   state = {
     customers: []
@@ -34,7 +34,18 @@ class StatsPage extends React.Component {
         <div>
           <LeftNavigation />
         </div>
-        <div className="content">
+        <div className="content"
+             style={{
+                 display: 'flex',
+                 flexDirection:'row',
+                 justifyContent: 'space-around',
+
+
+             }}>
+            <div className = "left"><h1>Track your reviews and improve customer service.</h1>
+            Know when customers follow the link to leave you a review! This area will advise you when an invitation you have sent is opened!
+            </div>
+            <div className="statBox">
           {this.state.customers.map(customer => {
             return (
               <div key={customer[0]}>
@@ -46,6 +57,7 @@ class StatsPage extends React.Component {
               </div>
             );
           })}
+            </div>
         </div>
       </div>
     );

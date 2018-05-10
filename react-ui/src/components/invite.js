@@ -1,6 +1,7 @@
 import React from 'react';
 import LeftNavigation from './LeftNav';
 import axios from 'axios';
+import './Stat.css';
 import { PhoneNumberFormat, PhoneNumberUtil } from 'google-libphonenumber';
 
 class InvitePage extends React.Component {
@@ -78,43 +79,64 @@ class InvitePage extends React.Component {
         <div>
           <LeftNavigation />
         </div>
-        <div className="content">
-          <h2>Customer Info</h2>
+        <div className="content"
+             style={{
+                 display: 'flex',
+                 flexDirection: 'row',
+
+
+             }}>
+          <div className="left">
+          <h1>Customer Info</h1>
 Enter your customers first name, last name and phone number to send them an invitation to leave a review.
-          <div
+          </div>
+          <div className="inviteBox"
             style={{
               display: 'flex',
               flexDirection: 'column',
-              alignItems: 'center'
+
+
             }}
           >
-            <label> Customer First Name: </label>
+
+            <div>
+
+
+            <label> Customer First Name:  </label>
+
             <input
 
-              placeholder="Customer first name"
+              placeholder="First Name"
               name="firstName"
               value={this.state.firstName}
               type="text"
               onChange={this.handleChange}
             />
+          </div>
+            <div>
             <label>Customer Last Name: </label>
             <input
-              placeholder="Customer last name"
+              placeholder="Last Name"
               name="lastName"
               value={this.state.lastName}
               type="text"
               onChange={this.handleChange}
             />
+            </div>
+            <div>
             <label>Customer Phone Number: </label>
             <input
-              placeholder="Customer phone number"
+              placeholder="Phone Number"
               name="phoneNumber"
               value={this.state.phoneNumber}
               type="text"
               onChange={this.handleChange}
+
             />
           </div>
-          <button onClick={this.handleSend}>Send</button>
+
+          <button className="short" onClick={this.handleSend}>Send</button>
+        </div>
         </div>
       </div>
         </body>

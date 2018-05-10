@@ -103,42 +103,42 @@ export class SettingsPage extends React.Component {
     this.setState({ [event.target.name]: event.target.value });
   };
 
-  modifyMessageContentToDB = message => {
-    const manager = /<manager name>/gi;
-    const businessName = /<business name>/gi;
-    const link = /<link>/gi;
-    let newMessage = message.replace(
-      new RegExp(manager, 'g'),
-      this.state.managerName
-    );
-    newMessage = newMessage.replace(
-      new RegExp(businessName, 'g'),
-      this.state.businessName
-    );
-    newMessage = newMessage.replace(
-      new RegExp(link, 'g'),
-      this.state.allReviewSites[0]
-    );
-    return newMessage;
-  };
+    modifyMessageContentToDB = message => {
+        const manager = /<manager name>/gi;
+        const businessName = /<business name>/gi;
+        const link = /<link>/gi;
+        let newMessage = message.replace(
+            new RegExp(manager, 'g'),
+            this.state.managerName
+        );
+        newMessage = newMessage.replace(
+            new RegExp(businessName, 'g'),
+            this.state.businessName
+        );
+        newMessage = newMessage.replace(
+            new RegExp(link, 'g'),
+            this.state.allReviewSites[0]
+        );
+        return newMessage;
+    };
 
-  modifyMessageContentFromDB = message => {
-    if (!message.length)
-      return 'Use <manager name>, <business name>, and <link>. And we will populate it with what you have filled out on the left!';
-    const manager = this.state.managerName;
-    const businessName = this.state.businessName;
-    const link = this.state.allReviewSites[0];
-    let newMessage = message.replace(
-      new RegExp(manager, 'g'),
-      '<manager name>'
-    );
-    newMessage = newMessage.replace(
-      new RegExp(businessName, 'g'),
-      '<business name>'
-    );
-    newMessage = newMessage.replace(new RegExp(link, 'g'), '<link>');
-    return newMessage;
-  };
+    modifyMessageContentFromDB = message => {
+        if (!message.length)
+            return "Hey, this is <manager name> from <business name>. Thanks for coming in today! I hope you enjoyed your visit and will come see us again soon. In the meantime, could you do me a personal favor and leave us a review? Here is a link that will make it easy: <link>";
+        const manager = this.state.managerName;
+        const businessName = this.state.businessName;
+        const link = this.state.allReviewSites[0];
+        let newMessage = message.replace(
+            new RegExp(manager, 'g'),
+            '<manager name>'
+        );
+        newMessage = newMessage.replace(
+            new RegExp(businessName, 'g'),
+            '<business name>'
+        );
+        newMessage = newMessage.replace(new RegExp(link, 'g'), '<link>');
+        return newMessage;
+    };
 
   render() {
     return (
@@ -151,10 +151,12 @@ export class SettingsPage extends React.Component {
             style={{
               display: 'flex',
               justifyContent: 'space-around',
-              alignItems: 'center'
+              alignItems: 'center',
+
             }}
           >
             <div className="left">
+
               <label>Manager Name:</label>
               <input
                 name="managerName"
@@ -209,7 +211,7 @@ export class SettingsPage extends React.Component {
               )}
             </div>
 
-            <div className="right">
+            <div className="rightS">
               <label>Message Content: </label>
               Customize the message your customer receives. You do not need to
               add the review site to this section.
