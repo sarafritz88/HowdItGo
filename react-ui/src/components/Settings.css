@@ -1,14 +1,4 @@
 
-.leftS {
-    height: 50vh;
-    width: 50vh;
-    padding: 3vh;
-    border-right: 1px solid black;
-    display: flex;
-    flex-direction: column;
-
-}
-
 .rightS {
     width: 50vh;
     padding: 3vh;
@@ -22,3 +12,20 @@
     height: 40vh;
 }
 
+.settings {
+    max-width: 350px;
+}
+
+.inviteBox {
+
+    height: 50vh;
+    width: 20vw;
+    display: flex;
+    justify-content: center;
+}
+
+.short {
+
+    width: 10vw;
+    margin-top: 1vh;
+}

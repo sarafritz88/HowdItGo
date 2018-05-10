@@ -1,4 +1,5 @@
 .lnavcontainer {
+  border-top: 2px solid #fe8c00;
   height: 10vh;
   width: 100vw;
   position: absolute;
@@ -23,7 +24,6 @@ h2 {
   color: black;
   font-size: 2vh;
   list-style-type: none;
-
 }
 
 .lmenu a{
