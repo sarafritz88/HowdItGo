@@ -124,7 +124,7 @@ export class SettingsPage extends React.Component {
 
   modifyMessageContentFromDB = message => {
     if (!message.length)
-      return 'Use <manager name>, <business name>, and <link>. And we will populate it with what you have filled out on the left!';
+      return "Hey, this is <manager name> from <business name>. Thanks for coming in today! I hope you enjoyed your visit and will come see us again soon. In the meantime, could you do me a personal favor and leave us a review? Here is a link that will make it easy: <link>";
     const manager = this.state.managerName;
     const businessName = this.state.businessName;
     const link = this.state.allReviewSites[0];
