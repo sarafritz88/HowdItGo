@@ -7,7 +7,14 @@ import axios from 'axios';
 import * as routes from '../constants/routes';
 
 const SignUpPage = ({ history }) => (
-  <div className="page">
+  <div className="page"
+       style={{
+           display: 'flex',
+           flexDirection: 'row',
+           alignItems: 'center',
+           maxWidth: '850px'
+
+       }}>
     <SignUpForm history={history} />
     <SignInForm history={history} />
   </div>

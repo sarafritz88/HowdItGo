@@ -74,9 +74,14 @@ html, body {
     margin-top: 10vh;
 }
 
+#landing-page .right {
+
+    margin: 10vw;
+}
+
 #landing-page h4 {
     font-size: 2.5vh;
-    margin-right: 4vw;
+    max-width: 30vw;
 }
 
 h6 {

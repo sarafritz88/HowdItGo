@@ -14,9 +14,10 @@
   width: 35vw;
   height: 80vh;
   align-items: center;
-  justify-content: space-around;
+  flex-direction: row;
   border-top: 1px solid #f99d2c;
   border-bottom: 1px solid #f99d2c;
+
 }
 
 .signuphead {
