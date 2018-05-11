@@ -75,9 +75,11 @@ html, body {
 }
 
 #landing-page .right {
-
-    margin: 10vw;
+    padding-top: 2vh;
+    margin: 20vw;
 }
+
+
 
 #landing-page h4 {
     font-size: 2.5vh;

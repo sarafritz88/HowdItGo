@@ -11,6 +11,7 @@ const SignUpPage = ({ history }) => (
        style={{
            display: 'flex',
            flexDirection: 'row',
+           justifyContent:'center',
            alignItems: 'center',
            maxWidth: '850px'
 
