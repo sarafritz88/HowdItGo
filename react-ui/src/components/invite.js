@@ -61,7 +61,7 @@ class InvitePage extends React.Component {
       this.props.history.push('/signup');
       return;
     }
-    axios
+    await axios
       .post(`/settings/user_settings`, { email })
       .then(response => {
         this.setState({
@@ -70,76 +70,74 @@ class InvitePage extends React.Component {
         });
       })
       .catch(error => console.log(error));
+    console.log(this.state.messageContent);
   }
 
   render() {
     return (
-        <body id="invitePage">
-      <div className="page">
-        <div>
-          <LeftNavigation />
-        </div>
-        <div className="content"
-             style={{
-                 display: 'flex',
-                 flexDirection: 'row',
-
-
-             }}>
-          <div className="left">
-          <h1>Customer Info</h1>
-Enter your customers first name, last name and phone number to send them an invitation to leave a review.
+      <body id="invitePage">
+        <div className="page">
+          <div>
+            <LeftNavigation />
           </div>
-          <div className="inviteBox"
+          <div
+            className="content"
             style={{
               display: 'flex',
-              flexDirection: 'column',
-
-
+              flexDirection: 'row'
             }}
           >
-
-            <div>
-
-
-            <label> Customer First Name:  </label>
-
-            <input
-
-              placeholder="First Name"
-              name="firstName"
-              value={this.state.firstName}
-              type="text"
-              onChange={this.handleChange}
-            />
-          </div>
-            <div>
-            <label>Customer Last Name: </label>
-            <input
-              placeholder="Last Name"
-              name="lastName"
-              value={this.state.lastName}
-              type="text"
-              onChange={this.handleChange}
-            />
+            <div className="left">
+              <h1>Customer Info</h1>
+              Enter your customers first name, last name and phone number to
+              send them an invitation to leave a review.
             </div>
-            <div>
-            <label>Customer Phone Number: </label>
-            <input
-              placeholder="Phone Number"
-              name="phoneNumber"
-              value={this.state.phoneNumber}
-              type="text"
-              onChange={this.handleChange}
+            <div
+              className="inviteBox"
+              style={{
+                display: 'flex',
+                flexDirection: 'column'
+              }}
+            >
+              <div>
+                <label> Customer First Name: </label>
 
-            />
+                <input
+                  placeholder="First Name"
+                  name="firstName"
+                  value={this.state.firstName}
+                  type="text"
+                  onChange={this.handleChange}
+                />
+              </div>
+              <div>
+                <label>Customer Last Name: </label>
+                <input
+                  placeholder="Last Name"
+                  name="lastName"
+                  value={this.state.lastName}
+                  type="text"
+                  onChange={this.handleChange}
+                />
+              </div>
+              <div>
+                <label>Customer Phone Number: </label>
+                <input
+                  placeholder="Phone Number"
+                  name="phoneNumber"
+                  value={this.state.phoneNumber}
+                  type="text"
+                  onChange={this.handleChange}
+                />
+              </div>
+
+              <button className="short" onClick={this.handleSend}>
+                Send
+              </button>
+            </div>
           </div>
-
-          <button className="short" onClick={this.handleSend}>Send</button>
         </div>
-        </div>
-      </div>
-        </body>
+      </body>
     );
   }
 }

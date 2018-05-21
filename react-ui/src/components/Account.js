@@ -1,19 +1,20 @@
-// import React from 'react';
-// import PropTypes from 'prop-types';
-// import withAuthorization from './withAuthorization';
-// import LeftNavigation from './LeftNav';
+import React from 'react';
+import LeftNavigation from './LeftNav';
 
-// import './account.css';
+import PasswordChange from './PasswordChange';
 
-// const AccountPage = (props, { authUser }) => (
-//   <div className="acc">
-//     <div>
-//       <LeftNavigation />
-//     </div>
-//   </div>
-// );
-// AccountPage.contextTypes = {
-//   authUser: PropTypes.object
-// };
-// const authCondition = authUser => !!authUser;
-// export default withAuthorization(authCondition)(AccountPage);
+import './account.css';
+
+export default class AccountPage extends React.Component {
+  render() {
+    return (
+      <div className="acc">
+        <div>
+          <LeftNavigation />
+        </div>
+        <PasswordChange />
+        <div>Billing Section</div>
+      </div>
+    );
+  }
+}
