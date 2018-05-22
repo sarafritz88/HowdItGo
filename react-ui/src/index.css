@@ -1,3 +1,13 @@
+html, body {
+  background-color: #07003b;
+  background-image: url("https://www.transparenttextures.com/patterns/circles.png");
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+
 body {
   margin: 0;
   padding: 0;
@@ -23,15 +33,15 @@ body {
 
 
 .content {
-  height: 70vh;
+  height: 100vh;
   width: 90vw;
   max-width: 950px;
-  padding: 10vh;
-  background-image: linear-gradient(135deg, #fdfcfb 20%, #e2d1c3 100%);
+  background-color: #EFEFF2;
   display: flex;
   justify-content: space-around;
   align-items: center;
   flex-direction: column;
-  border-radius: 3px;
-  border: 3px solid #fe8c00;
+  border-left: 2vw solid #fffafa;
+  border-right: 2vw solid #fffafa;
+  box-shadow: 10px 0 15px -1px, -10px 0 18px -1px;
 }
