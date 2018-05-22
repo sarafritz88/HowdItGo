@@ -170,9 +170,11 @@ export class SettingsPage extends React.Component {
             }}
           >
             <div className="left">
+
               <h2>
                 Set the information your customers will see in their text!
               </h2>
+
               <label>Manager Name:</label>
               <input
                 name="managerName"
