@@ -12,6 +12,7 @@ const authToken = process.env.TWILIO_TEST_AUTHTOKEN;
 const client = new twilio(accountSid, authToken);
 
 const baseURL = 'https://howd-it-go.firebaseio.com';
+const bitlyURL = 'https://api-ssl.bitly.com';
 const axios = require('axios');
 const firebase = require('firebase');
 const admin = require('firebase-admin');
@@ -188,7 +189,35 @@ if (cluster.isMaster) {
       });
   });
 
-  
+  app.post('/shorten-link', (req, res) => {
+    const { encodedLink } = req.body;
+    axios
+      .post(
+        `${bitlyURL}/v3/shorten?access_token=${
+          process.env.BITLY_API_KEY
+        }&longUrl=${encodedLink}`
+      )
+      .then(response => res.send(response.data.data.url))
+      .catch(error => console.log(error));
+  });
+
+  app.post('update-user', (req, res) => {
+    const username = req.body;
+    const password = req.body;
+    admin
+      .auth()
+      .updateUser(username, {
+        password: password
+      })
+      .then(function(userRecord) {
+        // See the UserRecord reference doc for the contents of userRecord.
+        console.log('Successfully updated user', userRecord.toJSON());
+      })
+      .catch(function(error) {
+        console.log('Error updating user:', error);
+      });
+  });
+
   // All remaining requests return the React app, so it can handle routing.
   app.get('*', function(request, response) {
     response.sendFile(

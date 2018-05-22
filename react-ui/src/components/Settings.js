@@ -103,42 +103,57 @@ export class SettingsPage extends React.Component {
     this.setState({ [event.target.name]: event.target.value });
   };
 
-    modifyMessageContentToDB = message => {
-        const manager = /<manager name>/gi;
-        const businessName = /<business name>/gi;
-        const link = /<link>/gi;
-        let newMessage = message.replace(
-            new RegExp(manager, 'g'),
-            this.state.managerName
-        );
-        newMessage = newMessage.replace(
-            new RegExp(businessName, 'g'),
-            this.state.businessName
-        );
-        newMessage = newMessage.replace(
-            new RegExp(link, 'g'),
-            this.state.allReviewSites[0]
-        );
-        return newMessage;
-    };
+  shortenURL = async link => {
+    let shortenedLink = '';
+    if (!link.includes('http://') || !link.includes('https://'))
+      link = 'http://' + link;
+    let encodedLink = encodeURIComponent(link);
+    await axios
+      .post('/shorten-link', { encodedLink })
+      .then(res => {
+        shortenedLink = res.data;
+      })
+      .catch(err => console.log(err));
+    return shortenedLink;
+  };
 
-    modifyMessageContentFromDB = message => {
-        if (!message.length)
-            return "Hey, this is <manager name> from <business name>. Thanks for coming in today! I hope you enjoyed your visit and will come see us again soon. In the meantime, could you do me a personal favor and leave us a review? Here is a link that will make it easy: <link>";
-        const manager = this.state.managerName;
-        const businessName = this.state.businessName;
-        const link = this.state.allReviewSites[0];
-        let newMessage = message.replace(
-            new RegExp(manager, 'g'),
-            '<manager name>'
-        );
-        newMessage = newMessage.replace(
-            new RegExp(businessName, 'g'),
-            '<business name>'
-        );
-        newMessage = newMessage.replace(new RegExp(link, 'g'), '<link>');
-        return newMessage;
-    };
+  modifyMessageContentToDB = async message => {
+    //let shortenedLink = await this.shortenURL(this.state.allReviewSites[0]);
+    const manager = /<manager name>/gi;
+    const businessName = /<business name>/gi;
+    const link = /<link>/gi;
+    let newMessage = message.replace(
+      new RegExp(manager, 'g'),
+      this.state.managerName
+    );
+    newMessage = newMessage.replace(
+      new RegExp(businessName, 'g'),
+      this.state.businessName
+    );
+    newMessage = newMessage.replace(
+      new RegExp(link, 'g'),
+      this.state.allReviewSites[0]
+    );
+    return newMessage;
+  };
+
+  modifyMessageContentFromDB = message => {
+    if (!message.length)
+      return 'Hey, this is <manager name> from <business name>. Thanks for coming in today! I hope you enjoyed your visit and will come see us again soon. In the meantime, could you do me a personal favor and leave us a review? Here is a link that will make it easy: <link>';
+    const manager = this.state.managerName;
+    const businessName = this.state.businessName;
+    const link = this.state.allReviewSites[0];
+    let newMessage = message.replace(
+      new RegExp(manager, 'g'),
+      '<manager name>'
+    );
+    newMessage = newMessage.replace(
+      new RegExp(businessName, 'g'),
+      '<business name>'
+    );
+    newMessage = newMessage.replace(new RegExp(link, 'g'), '<link>');
+    return newMessage;
+  };
 
   render() {
     return (
@@ -151,12 +166,13 @@ export class SettingsPage extends React.Component {
             style={{
               display: 'flex',
               justifyContent: 'space-around',
-              alignItems: 'center',
-
+              alignItems: 'center'
             }}
           >
             <div className="left">
-                <h1>Set the information your customers will see in their text!</h1>
+              <h2>
+                Set the information your customers will see in their text!
+              </h2>
               <label>Manager Name:</label>
               <input
                 name="managerName"
@@ -213,8 +229,7 @@ export class SettingsPage extends React.Component {
 
             <div className="rightS">
               <label>Message Content: </label>
-              Customize the message your customer receives. You do not need to
-              add the review site to this section.
+              {`Place <business name> where you want your Business Name to go. Place <manager name> where you want your Manager Name to go. Place <link> where you want one of your review links to go.`}
               <textarea
                 id="messageContent"
                 name="messageContent"

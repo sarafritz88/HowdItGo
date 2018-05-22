@@ -1,14 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:regular,bold,italic&subset=latin,latin-ext');
 
-html, body {
-    background-size: cover;
-    background-color: #07003b;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 
-
-}
 
 #landing-page .container {
     background: #fe8c00;  /* fallback for old browsers */
