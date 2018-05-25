@@ -132,7 +132,8 @@ export class SettingsPage extends React.Component {
     );
     newMessage = newMessage.replace(
       new RegExp(link, 'g'),
-      this.state.allReviewSites[0]
+      this.state.allReviewSites[0] 
+      
     );
     return newMessage;
   };
@@ -170,9 +171,9 @@ export class SettingsPage extends React.Component {
             }}
           >
             <div className="left">
-              <h1>
+              <h2>
                 Set the information your customers will see in their text!
-              </h1>
+              </h2>
               <label>Manager Name:</label>
               <input
                 name="managerName"
