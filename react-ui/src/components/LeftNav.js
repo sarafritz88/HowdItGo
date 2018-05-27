@@ -33,7 +33,7 @@ const LeftNavigation = (props, { authUser }) => (
     </div>
     <div>
       <li className="lmenu">
-        <Link to={routes.ACCOUNT}>Account Settings</Link>
+        <Link to={routes.ACCOUNT}>Account</Link>
       </li>
     </div>
   </div>

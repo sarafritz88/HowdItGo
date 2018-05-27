@@ -51,6 +51,7 @@ export default class PasswordChange extends Component {
       <div className="form">
         <form onSubmit={this.onSubmit}>
           <div>
+            <h2> Change Your Password </h2>
             <div className="label">Username:</div>
             <input
               value={username}
