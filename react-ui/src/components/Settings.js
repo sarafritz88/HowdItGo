@@ -132,7 +132,8 @@ export class SettingsPage extends React.Component {
     );
     newMessage = newMessage.replace(
       new RegExp(link, 'g'),
-      this.state.allReviewSites[0]
+      this.state.allReviewSites[0] 
+      
     );
     return newMessage;
   };

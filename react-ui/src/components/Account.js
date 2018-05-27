@@ -8,13 +8,15 @@ import './account.css';
 export default class AccountPage extends React.Component {
   render() {
     return (
-      <div className="acc">
+        <div className = "page">
+      <div className="acc content">
         <div>
           <LeftNavigation />
         </div>
         <PasswordChange />
         <div>Billing Section</div>
       </div>
+        </div>
     );
   }
 }

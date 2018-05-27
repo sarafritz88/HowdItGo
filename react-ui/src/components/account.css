@@ -3,4 +3,9 @@ html, body {
 }
 .acc {
     display: flex;
+
+}
+
+.label {
+    color: black;
 }
