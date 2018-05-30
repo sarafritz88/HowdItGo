@@ -10,10 +10,7 @@ const SignUpPage = ({ history }) => (
   <div className="page"
        style={{
            display: 'flex',
-           flexDirection: 'row',
-           justifyContent:'center',
-           alignItems: 'center',
-           maxWidth: '850px'
+
 
        }}>
     <SignUpForm history={history} />

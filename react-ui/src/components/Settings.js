@@ -165,9 +165,8 @@ export class SettingsPage extends React.Component {
         <div className="content">
           <div
             style={{
-              display: 'flex',
-              justifyContent: 'space-around',
-              alignItems: 'center'
+              display:'flex',
+
             }}
           >
             <div className="left">

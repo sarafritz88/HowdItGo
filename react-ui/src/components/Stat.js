@@ -37,8 +37,7 @@ class StatsPage extends React.Component {
         <div className="content"
              style={{
                  display: 'flex',
-                 flexDirection:'row',
-                 justifyContent: 'space-around',
+
 
 
              }}>
