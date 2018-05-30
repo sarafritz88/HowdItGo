@@ -70,7 +70,7 @@ class SignInForm extends Component {
       <div className="form">
         <form onSubmit={this.onSubmit}>
           <div>
-            <div className="label">Email:</div>
+            <div>Email:</div>
             <input
               value={email}
               onChange={this.handleChange}
@@ -80,7 +80,7 @@ class SignInForm extends Component {
             />
           </div>
           <div>
-            <div className="label">Password:</div>
+            <div>Password:</div>
             <input
               value={password}
               onChange={this.handleChange}

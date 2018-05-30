@@ -84,7 +84,7 @@ class InvitePage extends React.Component {
             className="content"
             style={{
               display: 'flex',
-              flexDirection: 'row'
+
             }}
           >
             <div className="left">
