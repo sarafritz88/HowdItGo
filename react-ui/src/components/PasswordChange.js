@@ -36,7 +36,11 @@ export default class PasswordChange extends Component {
           username: this.state.username,
           password: this.state.passwordOne
         })
-        .then(res => console.log(res))
+        .then(res => {
+          res.data.success
+            ? alert('Updated Password')
+            : alert('Something went wrong');
+        })
         .catch(err => console.log(err));
     }
   };

@@ -8,11 +8,6 @@ class StatsPage extends React.Component {
   };
 
   async componentDidMount() {
-    axios
-      .get('/geturls')
-      .then(res => console.log(res))
-      .catch(err => console.log(err));
-
     const sessionCookie = await localStorage.getItem('sessionCookie');
     const email = await localStorage.getItem('email');
     if (!sessionCookie) {
@@ -22,7 +17,7 @@ class StatsPage extends React.Component {
     axios
       .post(`/get-customers`, { email })
       .then(response => {
-        const customers = Object.entries(response.data.customers);
+        const customers = Object.entries(response.data.customers) || [];
         this.setState({ customers: [...customers] });
       })
       .catch(error => console.log(error));
@@ -34,30 +29,37 @@ class StatsPage extends React.Component {
         <div>
           <LeftNavigation />
         </div>
-        <div className="content"
-             style={{
-                 display: 'flex',
-                 flexDirection:'row',
-                 justifyContent: 'space-around',
-
-
-             }}>
-            <div className = "left"><h1>Track your reviews and improve customer service.</h1>
-            Know when customers follow the link to leave you a review! This area will advise you when an invitation you have sent is opened!
-            </div>
-            <div className="statBox">
-          {this.state.customers.map(customer => {
-            return (
-              <div key={customer[0]}>
-                <div>{`${customer[1].firstName} ${customer[1].lastName} ${
-                  customer[1].clickedLink
-                    ? 'clicked your review link!'
-                    : 'has not clicked your review link yet!'
-                }`}</div>
-              </div>
-            );
-          })}
-            </div>
+        <div
+          className="content"
+          style={{
+            display: 'flex',
+            flexDirection: 'row',
+            justifyContent: 'space-around'
+          }}
+        >
+          <div className="left">
+            <h1>Track your reviews and improve customer service.</h1>
+            Know when customers follow the link to leave you a review! This area
+            will advise you when an invitation you have sent is opened!
+          </div>
+          <div className="statBox">
+            {this.state.customers.length ? (
+              this.state.customers.map(customer => {
+                return (
+                  <div key={customer[0]}>
+                    <div>{`${customer[1].firstName} ${customer[1].lastName} ${
+                      customer[1].clickedLink
+                        ? 'clicked your review link!'
+                        : 'has not clicked your review link yet!'
+                    }`}</div>
+                  </div>
+                );
+              })
+            ) : (
+              <p
+              >{`Head over to the invite page and send your first message!`}</p>
+            )}
+          </div>
         </div>
       </div>
     );

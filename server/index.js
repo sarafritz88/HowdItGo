@@ -12,7 +12,7 @@ const authToken = process.env.TWILIO_TEST_AUTHTOKEN;
 const client = new twilio(accountSid, authToken);
 
 const baseURL = 'https://howd-it-go.firebaseio.com';
-const bitlyURL = 'https://api-ssl.bitly.com';
+const bitlyURL = 'https://api-ssl.bitly.com'; // TODO
 const axios = require('axios');
 const firebase = require('firebase');
 const admin = require('firebase-admin');
@@ -245,10 +245,14 @@ if (cluster.isMaster) {
       })
       .then(function (userRecord) {
         // See the UserRecord reference doc for the contents of userRecord.
-        console.log('Successfully updated user', userRecord.toJSON());
+        res.send({
+          success: 'Successfully Updated User'
+        });
       })
       .catch(function (error) {
-        console.log('Error updating user:', error);
+        res.send({
+          error: 'Error updating user'
+        });
       });
   });
 

@@ -70,7 +70,6 @@ class InvitePage extends React.Component {
         });
       })
       .catch(error => console.log(error));
-    console.log(this.state.messageContent);
   }
 
   render() {
