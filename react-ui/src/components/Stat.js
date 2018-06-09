@@ -8,11 +8,6 @@ class StatsPage extends React.Component {
   };
 
   async componentDidMount() {
-    axios
-      .get('/geturls')
-      .then(res => console.log(res))
-      .catch(err => console.log(err));
-
     const sessionCookie = await localStorage.getItem('sessionCookie');
     const email = await localStorage.getItem('email');
     if (!sessionCookie) {
@@ -22,7 +17,7 @@ class StatsPage extends React.Component {
     axios
       .post(`/get-customers`, { email })
       .then(response => {
-        const customers = Object.entries(response.data.customers);
+        const customers = Object.entries(response.data.customers) || [];
         this.setState({ customers: [...customers] });
       })
       .catch(error => console.log(error));

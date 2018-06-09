@@ -32,11 +32,15 @@ export default class PasswordChange extends Component {
       return;
     } else {
       axios
-        .post('update-user', {
+        .post('/update-user', {
           username: this.state.username,
           password: this.state.passwordOne
         })
-        .then(res => console.log(res))
+        .then(res => {
+          res.data.success
+            ? alert('Updated Password')
+            : alert('Something went wrong');
+        })
         .catch(err => console.log(err));
     }
   };
