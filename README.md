@@ -2,6 +2,8 @@ Web app that is meant to help business owners and managers easily get reviews fr
 
 This project was built with React, Node.js, Express.js, and Firebase.
 
+— to run this. You need to $ npm start in the root directory and cd into react-ui and $ npm start there as well to start the react server as well as the Node server
+
 *Sign Up Page*
 
 Initially you are brought to a screen where you can either Sign up or Sign In.
