@@ -1,20 +1,13 @@
 .statBox {
     border: 2px solid #fe8c00;
     padding: 1vw;
-    height: 20vh;
-    width: 30vw;
+    height: 200px;
+    width: 100%;
     max-width: 400px;
     background-color: whitesmoke;
     overflow: scroll;
 }
 
-.left {
-
-    height: 50vh;
-    width: 50vw;
-    max-width: 400px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-right: 2vw;
+textarea#messageContent.form-control{
+    height: 250px;
 }

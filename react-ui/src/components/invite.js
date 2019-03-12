@@ -3,6 +3,7 @@ import LeftNavigation from './LeftNav';
 import axios from 'axios';
 import './Stat.css';
 import { PhoneNumberFormat, PhoneNumberUtil } from 'google-libphonenumber';
+import {Button, Card, CardBody, CardHeader, CardText, CardTitle, Container, Form, Input} from "reactstrap";
 
 class InvitePage extends React.Component {
   state = {
@@ -58,7 +59,7 @@ class InvitePage extends React.Component {
     const sessionCookie = await localStorage.getItem('sessionCookie');
     const email = await localStorage.getItem('email');
     if (!sessionCookie) {
-      this.props.history.push('/signup');
+      this.props.history.push('/signin');
       return;
     }
     await axios
@@ -74,71 +75,29 @@ class InvitePage extends React.Component {
 
   render() {
     return (
-      <body id="invitePage">
-        <div className="page">
-          <div>
-            <LeftNavigation />
-          </div>
-          <div
-            className="content"
-            style={{
-              display: 'flex',
 
-            }}
-          >
-            <div className="left">
-              <h1>Customer Info</h1>
-              Enter your customers first name, last name and phone number to
-              send them an invitation to leave a review.
-            </div>
-            <div
-              className="inviteBox"
-              style={{
-                display: 'flex',
-                flexDirection: 'column'
-              }}
-            >
-              <div>
-                <label> Customer First Name: </label>
+       <Container>
+         <Card>
+           <CardHeader>
+             Invite customers to leave a review by sending them a link.
+           </CardHeader>
+           <CardBody>
+             <Form>
+               <Input type="text" name="firstName" value={this.state.firstName} onChange={this.handleChange} placeholder="Customer First Name" />
+               <Input type="text" name="lastName" value={this.state.lastName} onChange={this.handleChange} placeholder="Customer Last Name" />
+               <Input type="text" name="phoneNumber" value={this.state.phoneNumber} onChange={this.handleChange} placeholder="Customer Phone Number" />
 
-                <input
-                  placeholder="First Name"
-                  name="firstName"
-                  value={this.state.firstName}
-                  type="text"
-                  onChange={this.handleChange}
-                />
-              </div>
-              <div>
-                <label>Customer Last Name: </label>
-                <input
-                  placeholder="Last Name"
-                  name="lastName"
-                  value={this.state.lastName}
-                  type="text"
-                  onChange={this.handleChange}
-                />
-              </div>
-              <div>
-                <label>Customer Phone Number: </label>
-                <input
-                  placeholder="Phone Number"
-                  name="phoneNumber"
-                  value={this.state.phoneNumber}
-                  type="text"
-                  onChange={this.handleChange}
-                />
-              </div>
+               <Button className="short" onClick={this.handleSend}>
+                 Send
+               </Button>
+             </Form>
+           </CardBody>
+         </Card>
+       </Container>
 
-              <button className="short" onClick={this.handleSend}>
-                Send
-              </button>
-            </div>
-          </div>
-        </div>
-      </body>
     );
   }
 }
 
 export default InvitePage;
+export { InvitePage };

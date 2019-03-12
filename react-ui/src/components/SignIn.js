@@ -3,13 +3,22 @@ import { withRouter } from 'react-router-dom';
 import { SignUpLink } from './SignUp';
 import { PasswordForgetLink } from './PasswordForget';
 import axios from 'axios';
+import {Container, Row, Col, Form, Input, Button} from 'reactstrap';
+import './SignIn.css';
 
 const SignInPage = ({ history }) => (
-  <div>
+  <Container className="formContainer">
+    <Row>
+      <Col>
+        <Row>
+          <Col className="silogo" sm="12" md={{ size: 6, offset: 3 }}><i className="fa fa-code fa-lg"></i></Col>
+        </Row>
     <SignInForm history={history} />
     <PasswordForgetLink />
     <SignUpLink />
-  </div>
+      </Col>
+    </Row>
+  </Container>
 );
 
 const INITIAL_STATE = {
@@ -50,7 +59,7 @@ class SignInForm extends Component {
         } else {
           localStorage.setItem('sessionCookie', result.data.sessionCookie);
           localStorage.setItem('email', this.state.email);
-          history.push('/Settings');
+          history.push('/Dashboard');
         }
       })
       .catch(err => {
@@ -65,40 +74,16 @@ class SignInForm extends Component {
     const isInvalid = password === '' || email === '';
 
     return (
-        <div className="signup">
 
-      <div className="form">
-        <form onSubmit={this.onSubmit}>
-          <div>
-            <div>Email:</div>
-            <input
-              value={email}
-              onChange={this.handleChange}
-              type="email"
-              name="email"
-              placeholder="John@Doe.com"
-            />
-          </div>
-          <div>
-            <div>Password:</div>
-            <input
-              value={password}
-              onChange={this.handleChange}
-              type="password"
-              name="password"
-              placeholder="******"
-            />
-          </div>
-          <button disabled={isInvalid} type="submit">
+        <Form className="form" onSubmit={this.onSubmit}>
+          <Input type="email" name="email" value={email} onChange={this.handleChange} placeholder="Email" />
+          <Input type="password" name="password" value={password} onChange={this.handleChange} placeholder="Password" />
+          <Button disabled={isInvalid} type="submit" className="Fbutton">
             Sign In
-          </button>
-          <PasswordForgetLink />
+          </Button>
 
           {error && <p>{error.message}</p>}
-        </form>
-      </div>
-          <div className="signuphead in">Sign In</div>
-        </div>
+        </Form>
     );
   }
 }

@@ -1,47 +1,30 @@
 import React from 'react';
 import './landing.css';
-import * as routes from '../constants/routes';
-import { Link } from 'react-router-dom';
 import 'font-awesome/css/font-awesome.min.css';
+import {Col, Container, Row} from "reactstrap";
+import * as routes from "../constants/routes";
+import {Link} from "react-router-dom";
 
 
 
 const LandingPage = () =>
-    <body id="landing-page">
-    <div className="container">
-        <div className="overlay">
-        <div className="top">
-            <h1 className="text"> HowdItGo </h1>
-        <h6>Customer Feedback and Review Management</h6>
-            <h3>Let Your Customers Share Their Experience</h3>
+<Row className="landing-content">
 
-        </div>
-            <div className="lower">
-                <div className="left">
-                    <div className="box"><div className="speech-bubble">
-                        <i class="fa fa-star fa-3x"> </i>
-                        <i class="fa fa-star fa-3x"> </i>
-                        <i class="fa fa-star fa-3x"> </i>
-                        <i class="fa fa-star fa-3x"> </i>
-                        <i class="fa fa-star fa-3x"> </i>
-
-                    </div>  <div className="message-dots">
-                        <div className="dot-1"></div>
-                        <div className="dot-2"></div>
-                        <div className="dot-3"></div>
-                    </div></div>
-                </div>
-                <div className="right">
-<p1>
-                <h4> Gaining customer feedback and online review management has never been easier.  </h4>
-                <h4>Easily drive reviews of your business and improve customer service with HowdItGo Customer Interaction Software. </h4>
-</p1>
-                    <button className="button-two"><span><Link to={routes.SIGN_UP}> Get Started</Link></span></button>
-                </div>
+    <Col sm="12" md={{ size: 6, offset: 6 }} className="landing-info">
+        <h4>Are you struggling to get customers to leave reviews? Looking for a way to easily provide customers your review sites?</h4>
+        <h2>Perhaps you should try...</h2>
+        <h1>Howd It Go</h1>
+        <h4>Customer Review Management</h4>
+        <Link to={routes.SIGN_UP}>
+        <div className="Fbutton">
+            <p className="Fclic">Lets Get Started!</p>
+            <div className="Fhover">
+                <p className="Fsure"><i className="fa fa-thumbs-up"></i></p>
             </div>
         </div>
-        </div>
-    </body>
-
+        </Link>
+    </Col>
+</Row>
+;
 
 export default LandingPage;

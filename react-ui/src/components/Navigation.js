@@ -9,11 +9,13 @@ import 'font-awesome/css/font-awesome.min.css';
 import SignOutButton from './SignOut';
 
 import * as routes from '../constants/routes';
+import {Col, Container, Nav, Navbar, NavbarBrand, NavItem, NavLink, Row} from "reactstrap";
+
 
 const Navigation = (props, {
   authUser
 }) => ( <div> {
-    authUser ? < NavigationAuth / > : < NavigationNonAuth / >
+    authUser ? < NavigationAuth /> : < NavigationNonAuth />
   } </div>
 );
 Navigation.contextTypes = {
@@ -29,7 +31,7 @@ const NavigationAuth = () => (
   <li class = "logo"><Link to = {routes.LANDING}>Landing</Link>
   </li>
   <li>
-  <Link to = {routes.HOME}>Home</Link> 
+  <Link to = {routes.DASHBOARD}>Dashboard</Link>
   </li> 
   <li><Link to = {routes.ACCOUNT}>Account</Link></li>
   <li>
@@ -39,16 +41,24 @@ const NavigationAuth = () => (
 );
 
 const NavigationNonAuth = () => (
-  <ul>
-    <li>
-      <i className="fa fa-code fa-lg fa-spin" />
-    </li>
-    <li>HowdItGo</li>
-      <li className="logo"> </li>
-        {/*<Link to={routes.SIGN_UP}>Sign In</Link></li>
-        <li>//<Link to={routes.LANDING}>Landing</Link></li>*/}
+<div>
+  <Navbar>
+    <Container>
 
-  </ul>
+    <NavbarBrand>
+      <Link to={routes.LANDING}><i className="fa fa-code fa-lg fa-spin" /> HowdItGo</Link></NavbarBrand>
+      <Nav navbar>
+        <NavItem>
+          <Link to={routes.ACCOUNT}>Account</Link>
+        </NavItem>
+        <NavItem>
+          <Link to={routes.DASHBOARD}>Dashboard</Link>
+        </NavItem>
+      </Nav>
+
+    </Container>
+  </Navbar>
+</div>
 );
 
 export default Navigation;

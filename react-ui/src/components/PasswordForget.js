@@ -6,6 +6,7 @@ const PasswordForgetPage = () => (
     <PasswordForgetForm />
   </div>
 );
+
 const byPropKey = (propertyName, value) => () => ({
   [propertyName]: value
 });

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import {Button, Col, Form, Input} from "reactstrap";
 
 export default class PasswordChange extends Component {
   constructor(props) {
@@ -52,44 +53,43 @@ export default class PasswordChange extends Component {
       passwordOne === '' || passwordTwo === '' || username === '';
 
     return (
-      <div className="form">
-        <form onSubmit={this.onSubmit}>
-          <div>
+
+        <Form onSubmit={this.onSubmit}>
+
             <h2> Change Your Password </h2>
             <div className="label">Username:</div>
-            <input
+            <Input
               value={username}
               onChange={this.handleChange}
               type="text"
               name="username"
               placeholder="Username"
             />
-          </div>
-          <div>
+
+
             <div className="label">New Password:</div>
-            <input
+            <Input
               value={passwordOne}
               onChange={this.handleChange}
               type="password"
               name="passwordOne"
               placeholder="New Password"
             />
-          </div>
-          <div>
+
+
             <div className="label">Confirm Password:</div>
-            <input
+            <Input
               value={passwordTwo}
               onChange={this.handleChange}
               type="password"
               name="passwordTwo"
               placeholder="Confirm Password"
             />
-          </div>
-          <button disabled={isInvalid} type="submit">
+
+          <Button disabled={isInvalid} type="submit">
             Submit
-          </button>
-        </form>
-      </div>
+          </Button>
+        </Form>
     );
   }
 }

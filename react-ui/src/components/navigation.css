@@ -1,41 +1,21 @@
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background: #141E30;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to bottom, #243B55, #141E30);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to bottom, #243B55, #141E30); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    opacity: 0.7;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    flex-direction: row;
-
+.navbar{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    background-color: #2A2F33;
 }
-
-li {
+.dashboardHead{
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 100px;
+}
+.nav-item a{
     color: white;
-    text-align: center;
-    padding: 8px;
 }
-
-li a {
-    text-decoration: none;
+.navbar-brand a{
     color: white;
-    text-align: center;
-    padding: 8px;
-
 }
-
-li a:hover {
-    background-color: #111111;
-    color: white;
-    text-align: center;
-    padding: 8px;
-    text-decoration: none;
-}
-
-.logo {
-    margin-left: auto;
+.card{
+    margin: 10px;
 }

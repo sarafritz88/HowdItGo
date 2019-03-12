@@ -4,6 +4,7 @@ import { withRouter } from 'react-router';
 
 import './Settings.css';
 import LeftNavigation from './LeftNav';
+import {Button, Card, CardBody, CardHeader, Col, Container, Form, Input, Row} from "reactstrap";
 
 //const urlShortener = 'https://5ly.me/api/shorten.php?url=';
 
@@ -158,54 +159,36 @@ export class SettingsPage extends React.Component {
 
   render() {
     return (
-      <div className="page">
-        <div>
-          <LeftNavigation />
-        </div>
-        <div className="content">
-          <div
-            style={{
-              display:'flex',
 
-            }}
-          >
-            <div className="left">
-              <h2>
+
+        <Container>
+<Row>
+  <Col>
+
+            <Card>
+<CardHeader>
+
                 Set the information your customers will see in their text!
-              </h2>
+</CardHeader>
+              <CardBody>
+              <Form>
+
               <label>Manager Name:</label>
-              <input
-                name="managerName"
-                type="text"
-                placeholder="John Doe"
-                onChange={this.handleChange}
-                value={this.state.managerName}
-                required
-              />
+                <Input required id="managerName" type="text" name="managerName" value={this.state.managerName} onChange={this.handleChange} placeholder="Manager Name" />
+
               <label>Business Name:</label>
-              <input
-                name="businessName"
-                type="text"
-                placeholder="John's Auto Shop"
-                onChange={this.handleChange}
-                value={this.state.businessName}
-                required
-              />
+                <Input required id="businessName" type="text" name="businessName" value={this.state.businessName} onChange={this.handleChange} placeholder="Business Name" />
+
               <label>Review Site URL:</label>
-              <input
-                name="currentReviewSite"
-                type="text"
-                placeholder="www.google.com/places/johnsautoshop"
-                onChange={this.handleChange}
-                value={this.state.currentReviewSite}
-              />
-              <button
+                <Input id="currentReviewSite" type="text" name="currentReviewSite" value={this.state.currentReviewSite} onChange={this.handleChange} placeholder="www.url.com" />
+
+              <Button
                 style={{ height: '5vh' }}
                 title="Add Site"
                 onClick={() => this.addSite(this.state.currentReviewSite)}
               >
                 Add Site
-              </button>
+              </Button>
               {this.state.allReviewSites ? (
                 this.state.allReviewSites.map((site, index) => {
                   return (
@@ -225,27 +208,33 @@ export class SettingsPage extends React.Component {
               ) : (
                 <p>No Sites Yet</p>
               )}
-            </div>
-
-            <div className="rightS">
-              <label>Message Content: </label>
+              </Form>
+              </CardBody>
+            </Card>
+  </Col>
+  <Col>
+            <Card>
+<CardHeader>
+              <label>Message Content: </label><br />
               {`Place <business name> where you want your Business Name to go. Place <manager name> where you want your Manager Name to go. Place <link> where you want one of your review links to go.`}
-              <textarea
-                id="messageContent"
-                name="messageContent"
-                type="text"
-                placeholder="Nice message content"
-                onChange={this.handleChange}
-                value={this.state.messageContent}
-                required
-              />
-              <button onClick={this.handleSubmit}>Submit</button>
-            </div>
-          </div>
-        </div>
-      </div>
+</CardHeader>
+              <CardBody>
+                <Form>
+                  <Input required id="messageContent" type="textarea" name="messageContent" value={this.state.messageContent} onChange={this.handleChange} placeholder="Message Content" />
+
+              <Button onClick={this.handleSubmit}>Submit</Button>
+                </Form>
+              </CardBody>
+            </Card>
+  </Col>
+
+</Row>
+        </Container>
+
     );
   }
 }
 
 export default withRouter(SettingsPage);
+
+
