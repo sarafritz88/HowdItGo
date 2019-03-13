@@ -17,7 +17,7 @@ You may click to sign up, or follow the link to sign in.
 
 After signing in you are taken to the Dashboard. From the dashboard you can edit the content of you message, edit your personal settings, send a message and view your stats. 
 
-![Dashboard](./assets/dashboard.png?raw=true "Dashboard Page")
+![Dashboard](./assets/dashboard.PNG?raw=true "Dashboard Page")
 
 You may change your password on the Account Page.
 
