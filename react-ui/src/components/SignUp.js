@@ -30,7 +30,7 @@ const SignUpPage = ({ history }) => (
 
 const SignUpLink = () => (
   <p>
-    Don't have an account? <Link to={routes.SIGN_UP}>Sign Up</Link>
+    Already have an account? <Link to={routes.SIGN_IN}>Sign In</Link>
   </p>
 );
 
