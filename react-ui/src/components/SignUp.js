@@ -18,6 +18,7 @@ const SignUpPage = ({ history }) => (
               <Col>
                   <Row>
                       <Col className="silogo silogo-sm" sm="12" md={{ size: 6, offset: 3 }}><i className="fa fa-code fa-lg"></i></Col>
+  <SignInLink />
                   </Row>
 
     <SignUpForm history={history} />
@@ -28,7 +29,7 @@ const SignUpPage = ({ history }) => (
   </div>
 );
 
-const SignUpLink = () => (
+const SignInLink = () => (
   <p>
     Already have an account? <Link to={routes.SIGN_IN}>Sign In</Link>
   </p>
