@@ -12,7 +12,7 @@ Initially, you are brought to the landing page.
 
 You may click to sign up, or follow the link to sign in.
 
-![Signup](./assets/signup.png?raw=true "Signup Page")
+![Signup](./assets/signup.PNG?raw=true "Signup Page")
 
 After signing in you are taken to the Dashboard. From the dashboard you can edit the content of you message, edit your personal settings, send a message and view your stats. 
 
