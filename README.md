@@ -3,7 +3,7 @@ Web app that is meant to help business owners and managers easily get reviews fr
 This project was built with React, Node.js, Express.js, and Firebase.
 
 — to run this
-cd into root and npm start
+cd into root and npm start, then, 
 cd into react-ui and npm start
 
 Initially, you are brought to the landing page.
