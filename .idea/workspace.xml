@@ -4,10 +4,7 @@
     <bookmark url="file://$PROJECT_DIR$/react-ui/src/components/dashboard.js" line="28" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eb460104-0d2b-4d69-8f92-27da83f6cdb7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/browserlistrc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-    </list>
+    <list default="true" id="eb460104-0d2b-4d69-8f92-27da83f6cdb7" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -43,11 +40,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="751">
-              <caret line="53" column="4" selection-start-line="53" selection-start-column="4" selection-end-line="53" selection-end-column="4" />
+            <state relative-caret-position="731">
+              <caret line="43" column="15" selection-start-line="43" selection-start-column="15" selection-end-line="43" selection-end-column="15" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/react-ui/package-lock.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="262">
+              <caret line="407" column="13" selection-start-line="407" selection-start-column="9" selection-end-line="407" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -233,12 +239,12 @@
       <workItem from="1552096971852" duration="4218000" />
       <workItem from="1552249863617" duration="28903000" />
       <workItem from="1552409755726" duration="19218000" />
-      <workItem from="1553013196008" duration="2897000" />
+      <workItem from="1553013196008" duration="3167000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="59788000" />
+    <option name="totallyTimeSpent" value="60058000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="278" y="93" width="1400" height="1000" extended-state="0" />
@@ -545,8 +551,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="751">
-          <caret line="53" column="4" selection-start-line="53" selection-start-column="4" selection-end-line="53" selection-end-column="4" />
+        <state relative-caret-position="731">
+          <caret line="43" column="15" selection-start-line="43" selection-start-column="15" selection-end-line="43" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/react-ui/package-lock.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="262">
+          <caret line="407" column="13" selection-start-line="407" selection-start-column="9" selection-end-line="407" selection-end-column="13" />
         </state>
       </provider>
     </entry>
