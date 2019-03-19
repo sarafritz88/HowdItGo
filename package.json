@@ -47,6 +47,11 @@
     "create-react-app",
     "react"
   ],
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11"
+  ],
   "license": "MIT",
   "devDependencies": {},
   "homepage": "https://howd-it-go.herokuapp.com/"

@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="eb460104-0d2b-4d69-8f92-27da83f6cdb7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-ui/src/components/Navigation.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-ui/src/components/Navigation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/browserlistrc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -31,14 +31,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/react-ui/src/components/Navigation.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+            <state relative-caret-position="544">
+              <caret line="32" column="16" lean-forward="true" selection-start-line="32" selection-start-column="16" selection-end-line="32" selection-end-column="16" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/package.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="751">
+              <caret line="53" column="4" selection-start-line="53" selection-start-column="4" selection-end-line="53" selection-end-column="4" />
             </state>
           </provider>
         </entry>
@@ -110,26 +119,6 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/react-ui/src/constants/routes.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/react-ui/src/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FindInProjectRecents">
@@ -167,9 +156,9 @@
         <option value="$PROJECT_DIR$/react-ui/src/components/App.js" />
         <option value="$PROJECT_DIR$/react-ui/src/components/Landing.js" />
         <option value="$PROJECT_DIR$/react-ui/src/components/landing.css" />
+        <option value="$PROJECT_DIR$/react-ui/src/components/Navigation.js" />
         <option value="$PROJECT_DIR$/browserlistrc" />
         <option value="$PROJECT_DIR$/package.json" />
-        <option value="$PROJECT_DIR$/react-ui/src/components/Navigation.js" />
       </list>
     </option>
   </component>
@@ -195,26 +184,6 @@
               <item name="HowdItGo" type="b2602c69:ProjectViewProjectNode" />
               <item name="HowdItGo" type="462c0819:PsiDirectoryNode" />
               <item name="react-ui" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="HowdItGo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="HowdItGo" type="462c0819:PsiDirectoryNode" />
-              <item name="react-ui" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="HowdItGo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="HowdItGo" type="462c0819:PsiDirectoryNode" />
-              <item name="react-ui" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="HowdItGo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="HowdItGo" type="462c0819:PsiDirectoryNode" />
-              <item name="react-ui" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="constants" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -264,12 +233,12 @@
       <workItem from="1552096971852" duration="4218000" />
       <workItem from="1552249863617" duration="28903000" />
       <workItem from="1552409755726" duration="19218000" />
-      <workItem from="1553013196008" duration="2256000" />
+      <workItem from="1553013196008" duration="2897000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="59147000" />
+    <option name="totallyTimeSpent" value="59788000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="278" y="93" width="1400" height="1000" extended-state="0" />
@@ -473,24 +442,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/browserlistrc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="1" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/package-lock.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="262">
           <caret line="2316" column="14" selection-start-line="2316" selection-start-column="9" selection-end-line="2316" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-14">
-          <caret line="9" column="31" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="31" />
         </state>
       </provider>
     </entry>
@@ -577,11 +532,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/react-ui/src/components/Navigation.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+        <state relative-caret-position="544">
+          <caret line="32" column="16" lean-forward="true" selection-start-line="32" selection-start-column="16" selection-end-line="32" selection-end-column="16" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/browserlistrc">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="751">
+          <caret line="53" column="4" selection-start-line="53" selection-start-column="4" selection-end-line="53" selection-end-column="4" />
         </state>
       </provider>
     </entry>
