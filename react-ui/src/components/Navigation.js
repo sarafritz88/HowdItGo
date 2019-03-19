@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import {
   Link
 } from 'react-router-dom';
-import './navigation.css';
 import 'font-awesome/css/font-awesome.min.css';
 
 import SignOutButton from './SignOut';
