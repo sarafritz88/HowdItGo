@@ -12,35 +12,9 @@ import * as routes from '../constants/routes';
 import {Col, Container, Nav, Navbar, NavbarBrand, NavItem, NavLink, Row} from "reactstrap";
 
 
-const Navigation = (props, {
-  authUser
-}) => ( <div> {
-    authUser ? < NavigationAuth /> : < NavigationNonAuth />
-  } </div>
-);
-Navigation.contextTypes = {
-  authUser: PropTypes.object
-};
+const Navigation = () =>(
 
-const NavigationAuth = () => ( 
-  <ul>
-  <li>
-  <i className = "fa fa-code fa-lg fa-spin"> </i> 
-  </li> 
-  <li> HowdItGo </li> 
-  <li class = "logo"><Link to = {routes.LANDING}>Landing</Link>
-  </li>
-  <li>
-  <Link to = {routes.DASHBOARD}>Dashboard</Link>
-  </li> 
-  <li><Link to = {routes.ACCOUNT}>Account</Link></li>
-  <li>
-  <SignOutButton />
-  </li> 
-  </ul>
-);
 
-const NavigationNonAuth = () => (
 <div>
   <Navbar>
     <Container>
